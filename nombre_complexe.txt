@@ -1,0 +1,16 @@
+Nombre complexe :
+
+z = x + iy
+
+z = 10 + 8i
+
+Exemple d' addition de 2 nombres complexe :
+
+(17 + 3i) + (4 + 6i) = (17 + 4) + (3 + 6)i = 21 + 9i
+
+On additione 17 + 4 et 3 + 6. Ce qui donne : 
+
+z = 21 + 9i
+
+
+
