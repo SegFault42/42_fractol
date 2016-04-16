@@ -28,11 +28,33 @@
 # define PURPLE 0x993299
 # define DARK_GREY 0x3b3b3b
 
-# define WIDTH 1280
-# define HEIGHT 720
+# define WIDTH 270
+# define HEIGHT 240
 
 # define ORIGIN_X (WIDTH / 2)
 # define ORIGIN_Y (HEIGHT / 3)
 
+typedef struct		s_mlx
+{
+	void			*mlx_ptr;
+	void			*win_ptr;
+	void			*img_ptr;
+}					t_mlx;
 
+typedef struct		s_image
+{
+	unsigned long	img_color;
+	char			*data;
+	int				sizeline;
+	int				endian;
+	int				bpp;
+}					t_image;
+
+typedef struct		s_xy
+{
+	int				x;
+	int				y;
+}					t_xy;
+
+void	ft_pixel_put_to_image(t_image *img, t_xy *xy);
 #endif
