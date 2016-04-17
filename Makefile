@@ -41,7 +41,6 @@ $(NAME): $(OBJS)
 	@echo "\033[33mCompiling fdf ...\033[0m"
 	@gcc $(FLAG) -o $(NAME) $(OBJS) $(LMLX) $(LFT) $(FRAMEWORK)
 	@echo "\033[32mCompiling fdf done !\033[0m"
-	@make MARIO
 
 %.o : %.c 
 		@gcc -c $(FLAG) $(HEAD) $< -o $@
@@ -59,19 +58,3 @@ fclean:
 	@make -s clean -C ./minilibx_macos/
 
 re: fclean all
-
-MARIO :
-	@echo "$(END)              $(RED)          $(END)    $(SKIN)      $(END)    $(END)"
-	@echo "$(END)            $(RED)                  $(SKIN)    $(END)    $(END)"
-	@echo "$(END)            $(BROWN)      $(SKIN)    $(END)  $(SKIN)  $(END)  $(RED)      $(END)    $(END)"
-	@echo "$(END)          $(BROWN)  $(SKIN)  $(BROWN)  $(SKIN)      $(END)  $(SKIN)      $(RED)    $(END)    $(END)"
-	@echo "$(END)          $(BROWN)  $(SKIN)  $(BROWN)    $(SKIN)      $(END)  $(SKIN)      $(RED)  $(END)    $(END)"
-	@echo "$(END)          $(BROWN)    $(SKIN)        $(END)        $(RED)  $(END)      $(END)"
-	@echo "$(END)              $(SKIN)              $(RED)    $(END)      $(END)"
-	@echo "$(END)  $(SKIN)      $(RED)        $(BLUE)  $(RED)      $(BLUE)  $(RED)    $(END)    $(BROWN)  $(END)  $(END)"
-	@echo "$(END)  $(SKIN)      $(RED)          $(BLUE)  $(RED)      $(BLUE)  $(END)    $(BROWN)    $(END)  $(END)"
-	@echo "$(END)    $(SKIN)  $(END)      $(RED)      $(BLUE)        $(YELLOW)  $(BLUE)    $(BROWN)    $(END)  $(END)"
-	@echo "$(END)              $(BLUE)      $(YELLOW)  $(BLUE)          $(BROWN)    $(END)  $(END)"
-	@echo "$(END)          $(BROWN)    $(BLUE)                  $(BROWN)    $(END)  $(END)"
-	@echo "$(END)        $(BROWN)      $(BLUE)            $(END)            $(END)"
-	@echo "$(END)        $(BROWN)    $(END)                          $(END)"

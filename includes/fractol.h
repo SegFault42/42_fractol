@@ -54,4 +54,5 @@ typedef struct		s_xy
 }					t_xy;
 
 void	ft_pixel_put_to_image(t_image *img, t_xy *xy);
+
 #endif

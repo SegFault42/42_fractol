@@ -9,7 +9,7 @@ int	main(void)
 	mlx.img_ptr = mlx_new_image(mlx.mlx_ptr, WIDTH, HEIGHT);
 	im.data = mlx_get_data_addr(mlx.img_ptr, &im.bpp, &im.sizeline, &im.endian);
 	mlx.win_ptr = mlx_new_window(mlx.mlx_ptr, WIDTH, HEIGHT, "Fractol");
-	im.img_color = mlx_get_color_value(mlx.mlx_ptr, GREEN);
+	im.img_color = mlx_get_color_value(mlx.mlx_ptr, WHITE);
 	
 	t_xy	xy;
 	float	x1 = -2.1;
@@ -37,15 +37,12 @@ int	main(void)
 			z_r = 0;
 			z_i = 0;
 			i = 0;
-			do
+			while (z_r * z_r + z_i * z_i < 4 && i < max)
 			{
 				tmp = z_r;
 				z_r = (z_r * z_r) - (z_i * z_i) + c_r;
 				z_i = 2 * z_i * tmp + c_i;
 				i++;
-			}
-			while (z_r * z_r + z_i * z_i < 4 && i < max);
-			{
 				if (i == max)
 					if (xy.x < WIDTH && xy.y < HEIGHT)
 						if (xy.x > 0 && xy.y > 0)
