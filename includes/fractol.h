@@ -28,11 +28,8 @@
 # define PURPLE 0x993299
 # define DARK_GREY 0x3b3b3b
 
-# define WIDTH 270
-# define HEIGHT 240
-
-# define ORIGIN_X (WIDTH / 2)
-# define ORIGIN_Y (HEIGHT / 3)
+# define WIDTH 1280
+# define HEIGHT 720
 
 typedef struct		s_mlx
 {
