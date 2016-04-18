@@ -18,9 +18,9 @@ YELLOW = \033[48;5;226m
 END = \033[0m
 
 NAME = fractol
-FLAG = -Wall -Wextra -Werror -Ofast
+FLAG = -g -Wall -Wextra -Werror -Ofast
 FRAMEWORK = -framework OpenGL -framework AppKit
-OBJS = ./main.o ./print_point.o
+OBJS = ./main.o ./print_point.o ./key_hook.o
 LFT = -L./libft/ -lft
 LMLX = -L./minilibx_macos/ -lmlx
 HEAD = -I ./includes/fdf.h

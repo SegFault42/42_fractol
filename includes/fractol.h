@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#ifndef FRACTOL_H
+# define FRACTOL_H
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -28,8 +28,8 @@
 # define PURPLE 0x993299
 # define DARK_GREY 0x3b3b3b
 
-# define WIDTH 1280
-# define HEIGHT 720
+# define WIDTH 500
+# define HEIGHT 500
 
 typedef struct		s_mlx
 {
@@ -53,6 +53,38 @@ typedef struct		s_xy
 	int				y;
 }					t_xy;
 
-void	ft_pixel_put_to_image(t_image *img, t_xy *xy);
+typedef struct		s_move
+{
+	float			x1;
+	float			x2;
+	float			y1;
+	float			y2;
+	float			zoom;
+	float			max;
+	float			image_x;
+	float			image_y;
+	float			c_r;
+	float			c_i;
+	float			z_r;
+	float			z_i;
+	float			i;
+	float			tmp;
+}					t_move;
+
+typedef struct		s_key
+{
+}					t_key;
+
+typedef struct		s_all
+{
+	t_move			*move;
+	t_mlx			*mlx;
+	t_xy			*xy;
+	t_image			*image;
+}					t_all;
+
+void				ft_pixel_put_to_image(t_image *img, t_xy *xy);
+void				draw_fractal(t_image *im, t_move *move);
+int					key_hook(int keycode, void *param, t_image *im);
 
 #endif
