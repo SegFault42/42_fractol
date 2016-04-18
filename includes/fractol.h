@@ -31,30 +31,59 @@
 # define WIDTH 500
 # define HEIGHT 500
 
-typedef struct		s_mlx
+//typedef struct		s_mlx
+//{
+	//void			*mlx_ptr;
+	//void			*win_ptr;
+	//void			*img_ptr;
+//}					t_mlx;
+
+//typedef struct		s_image
+//{
+	//unsigned long	img_color;
+	//char			*data;
+	//int				sizeline;
+	//int				endian;
+	//int				bpp;
+//}					t_image;
+
+//typedef struct		s_xy
+//{
+	//int				x;
+	//int				y;
+//}					t_xy;
+
+//typedef struct		s_move
+//{
+	//float			x1;
+	//float			x2;
+	//float			y1;
+	//float			y2;
+	//float			zoom;
+	//float			max;
+	//float			image_x;
+	//float			image_y;
+	//float			c_r;
+	//float			c_i;
+	//float			z_r;
+	//float			z_i;
+	//float			i;
+	//float			tmp;
+//}					t_move;
+
+
+typedef struct		s_all
 {
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*img_ptr;
-}					t_mlx;
-
-typedef struct		s_image
-{
 	unsigned long	img_color;
 	char			*data;
 	int				sizeline;
 	int				endian;
 	int				bpp;
-}					t_image;
-
-typedef struct		s_xy
-{
 	int				x;
 	int				y;
-}					t_xy;
-
-typedef struct		s_move
-{
 	float			x1;
 	float			x2;
 	float			y1;
@@ -69,22 +98,10 @@ typedef struct		s_move
 	float			z_i;
 	float			i;
 	float			tmp;
-}					t_move;
-
-typedef struct		s_key
-{
-}					t_key;
-
-typedef struct		s_all
-{
-	t_move			*move;
-	t_mlx			*mlx;
-	t_xy			*xy;
-	t_image			*image;
 }					t_all;
 
-void				ft_pixel_put_to_image(t_image *img, t_xy *xy);
-void				draw_fractal(t_image *im, t_move *move);
-int					key_hook(int keycode, void *param, t_image *im);
+void				ft_pixel_put_to_image(t_all *all);
+void				draw_fractal(t_all *all);
+int					key_hook(int keycode, t_all *all);
 
 #endif

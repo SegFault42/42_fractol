@@ -12,27 +12,27 @@
 
 #include "../includes/fractol.h"
 
-void	ft_pixel_put_to_image(t_image *img, t_xy *xy)
+void	ft_pixel_put_to_image(t_all *all)
 {
 	unsigned char	r;
 	unsigned char	g;
 	unsigned char	b;
 
-	r = (img->img_color & 0xFF0000) >> 16;
-	g = (img->img_color & 0xFF00) >> 8;
-	b = (img->img_color & 0xFF);
-	if (img->endian == 0)
+	r = (all->img_color & 0xFF0000) >> 16;
+	g = (all->img_color & 0xFF00) >> 8;
+	b = (all->img_color & 0xFF);
+	if (all->endian == 0)
 	{
-		img->data[xy->y * img->sizeline + xy->x * img->bpp / 8 + 2] = r;
-		img->data[xy->y * img->sizeline + xy->x * img->bpp / 8 + 1] = g;
-		img->data[xy->y * img->sizeline + xy->x * img->bpp / 8 + 0] = b;
-		img->data[xy->y * img->sizeline + xy->x * img->bpp / 8 + 3] = 0x00;
+		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 2] = r;
+		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 1] = g;
+		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 0] = b;
+		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 3] = 0x00;
 	}
 	else
 	{
-		img->data[xy->y * img->sizeline + xy->x * img->bpp / 8 + 2] = b;
-		img->data[xy->y * img->sizeline + xy->x * img->bpp / 8 + 1] = g;
-		img->data[xy->y * img->sizeline + xy->x * img->bpp / 8 + 0] = r;
-		img->data[xy->y * img->sizeline + xy->x * img->bpp / 8 + 3] = 0x00;
+		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 2] = b;
+		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 1] = g;
+		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 0] = r;
+		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 3] = 0x00;
 	}
 }
