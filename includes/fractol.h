@@ -28,8 +28,8 @@
 # define PURPLE 0x993299
 # define DARK_GREY 0x3b3b3b
 
-# define WIDTH 500
-# define HEIGHT 500
+# define WIDTH 1280
+# define HEIGHT 720
 
 //typedef struct		s_mlx
 //{
@@ -53,23 +53,11 @@
 	//int				y;
 //}					t_xy;
 
-//typedef struct		s_move
-//{
-	//float			x1;
-	//float			x2;
-	//float			y1;
-	//float			y2;
-	//float			zoom;
-	//float			max;
-	//float			image_x;
-	//float			image_y;
-	//float			c_r;
-	//float			c_i;
-	//float			z_r;
-	//float			z_i;
-	//float			i;
-	//float			tmp;
-//}					t_move;
+typedef struct		s_move
+{
+	float			zoom;
+	float			max;
+}					t_move;
 
 
 typedef struct		s_all
@@ -101,7 +89,7 @@ typedef struct		s_all
 }					t_all;
 
 void				ft_pixel_put_to_image(t_all *all);
-void				draw_fractal(t_all *all);
+void				draw_fractal(t_all *all, t_move *move);
 int					key_hook(int keycode, t_all *all);
 
 #endif

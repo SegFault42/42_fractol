@@ -23,15 +23,40 @@ void	clear_image(t_all *all)
 
 int	key_hook(int keycode, t_all *all)
 {
+	static t_move	move = {10, 10};
 	if (keycode == KEY_EQUAL)
 	{
 		clear_image(all);
-		all->img_color = mlx_get_color_value(all->mlx_ptr, WHITE);
-		printf("%f\n", all->zoom);
-		all->zoom++;
-		draw_fractal(all);
+		all->img_color = mlx_get_color_value(all->mlx_ptr, GREEN);
+		all->zoom+= 10;
+		draw_fractal(all, &move);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-		ft_debug();
+	}
+	if (keycode == KEY_MIN)
+	{
+		clear_image(all);
+		all->img_color = mlx_get_color_value(all->mlx_ptr, GREEN);
+		all->zoom-= 10;
+		draw_fractal(all, &move);
+		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+	}
+	if (keycode == KEY_UP)
+	{
+		clear_image(all);
+		all->img_color = mlx_get_color_value(all->mlx_ptr, GREEN);
+		all->max+= 1;
+		printf("%f\n", all->max);
+		draw_fractal(all, &move);
+		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+	}
+	if (keycode == KEY_DOWN && all->max >= 2)
+	{
+		clear_image(all);
+		all->img_color = mlx_get_color_value(all->mlx_ptr, GREEN);
+		all->max-= 1;
+		printf("%f\n", all->max);
+		draw_fractal(all, &move);
+		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 	}
 	if (keycode == KEY_ESC)
 		exit(EXIT_SUCCESS);

@@ -1,15 +1,16 @@
 #include "../includes/fractol.h"
 
-void	draw_fractal(t_all *all)
+void	draw_fractal(t_all *all, t_move *move)
 {
 	all->x1 = -2.1;
 	all->x2 = 0.6;
 	all->y1 = -1.2;
 	all->y2 = 1.2;
-	all->zoom = 200;
-	all->max = 50;
+	move->zoom = 200;
+	move->max = 50;
 	all->x = 0;
 	all->y = 0;
+	all->size = 4;
 	all->image_x = (all->x2 - all->x1) * all->zoom;
 	all->image_y = (all->y2 - all->y1) * all->zoom;
 
@@ -23,7 +24,7 @@ void	draw_fractal(t_all *all)
 			all->z_r = 0;
 			all->z_i = 0;
 			all->i = 0;
-			while (all->z_r * all->z_r + all->z_i * all->z_i < 4 && all->i
+			while (all->z_r * all->z_r + all->z_i * all->z_i < all->size && all->i
 			< all->max)
 			{
 				all->tmp = all->z_r;
@@ -53,9 +54,10 @@ void	init_mlx(t_all *all)
 int	main(void)
 {
 	t_all	all;
+	t_move	move;
 
 	init_mlx(&all);
-	draw_fractal(&all);
+	draw_fractal(&all, &move);
 	mlx_put_image_to_window(all.mlx_ptr, all.win_ptr, all.img_ptr, 0, 0);
 	mlx_hook(all.win_ptr, 2, 3, key_hook, (void *)&all);
 	mlx_loop(all.mlx_ptr);
