@@ -23,4 +23,4 @@ Lien du sujet : [fract_ol.pdf][fract'ol]
 - toutes les fonctions de la libC
 
 
-   [fdf]: <https://github.com/SegFault42/42_fractol/blob/master/fract_ol.fr.pdf>
+   [fract'ol]: <https://github.com/SegFault42/42_fractol/blob/master/fract_ol.fr.pdf>
