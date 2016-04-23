@@ -6,7 +6,7 @@
 #    By: rabougue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/10 19:16:51 by rabougue          #+#    #+#              #
-#    Updated: 2016/04/15 23:34:31 by rabougue         ###   ########.fr        #
+#    Updated: 2016/04/24 01:22:57 by rabougue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ YELLOW = \033[48;5;226m
 END = \033[0m
 
 NAME = fractol
-FLAG = -g -Wall -Wextra -Werror -Ofast
+FLAG = -Ofast
 FRAMEWORK = -framework OpenGL -framework AppKit
 OBJS = ./main.o ./print_point.o ./key_hook.o
 LFT = -L./libft/ -lft
