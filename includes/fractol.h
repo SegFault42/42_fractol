@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/24 01:18:40 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/25 19:39:53 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define BLACK 0x000000
 # define PURPLE 0x993299
 # define DARK_GREY 0x3b3b3b
+# define YELLOW 0xFFFF00
 
 # define WIDTH 1280
 # define HEIGHT 720
@@ -63,6 +64,9 @@ typedef struct		s_all
 	float			z_i;
 	float			i;
 	float			tmp;
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
 }					t_all;
 
 void				ft_pixel_put_to_image(t_all *all);
