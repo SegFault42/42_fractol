@@ -6,20 +6,16 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:04:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/25 20:10:25 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/26 19:12:19 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-void	draw_julia(t_all *all, t_move *move)
+void	draw_julia(t_all *all)
 {
-	all->x1 = -1.6;
-	all->x2 = 2;
-	all->y1 = -1.2;
-	all->y2 = 2;
-	all->zoom = 400;
-	all->max = 150;
+	all->x = 0;
+	all->y = 0;
 	all->image_x = (all->x2 - all->x1) * all->zoom;
 	all->image_y = (all->y2 - all->y1) * all->zoom;
 	while (all->x < all->image_x)
@@ -63,14 +59,8 @@ void	draw_julia(t_all *all, t_move *move)
 	}
 }
 
-void	draw_mandelbrot(t_all *all, t_move *move)
+void	draw_mandelbrot(t_all *all)
 {
-	all->x1 = -2.1;
-	all->x2 = 0.6;
-	all->y1 = -1.2;
-	all->y2 = 1.2;
-	move->zoom = 200;
-	move->max = 50;
 	all->x = 0;
 	all->y = 0;
 	all->image_x = (all->x2 - all->x1) * all->zoom;
@@ -94,8 +84,21 @@ void	draw_mandelbrot(t_all *all, t_move *move)
 				all->z_i = 2 * all->z_i * all->tmp + all->c_i;
 				all->i++;
 				if (all->i == all->max)
+				{
 					if (all->x < WIDTH && all->y < HEIGHT && all->x > 0 && all->y > 0)
+					{
+						all->img_color = mlx_get_color_value(all->mlx_ptr, YELLOW);
 						ft_pixel_put_to_image(all);
+					}
+				}
+				else if (all->x < WIDTH && all->y < HEIGHT && all->x > 0 && all->y > 0)
+				{
+					all->r = 0;
+					all->g = 0;
+					all->b = all->i*255/all->max;
+					all->img_color = mlx_get_color_value(all->mlx_ptr, all->b);
+					ft_pixel_put_to_image(all);
+				}
 			}
 			all->y++;
 		}
@@ -112,15 +115,46 @@ void	init_mlx(t_all *all)
 	all->img_color = mlx_get_color_value(all->mlx_ptr, GREEN);
 }
 
-int		main(void)
+void	init_julia(t_all *all)
+{
+	all->x1 = -1.6;
+	all->x2 = 2;
+	all->y1 = -1.2;
+	all->y2 = 2;
+	all->zoom = 400;
+	all->max = 150;
+}
+
+void	init_mandelbrot(t_all *all)
+{
+	all->x1 = -2.1;
+	all->x2 = 0.6;
+	all->y1 = -1.2;
+	all->y2 = 1.2;
+	all->zoom = 200;
+	all->max = 50;
+}
+
+int		main(int argc, char **argv)
 {
 	t_all	all;
-	t_move	move;
 
+	check_arguments(&argc, &(*argv));
 	init_mlx(&all);
-	draw_julia(&all, &move);
-	mlx_put_image_to_window(all.mlx_ptr, all.win_ptr, all.img_ptr, 0, 0);
-	mlx_hook(all.win_ptr, 2, 3, key_hook, (void *)&all);
+	if (ft_strcmp(argv[1], "-m") == 0)
+	{
+		init_mandelbrot(&all);
+		draw_mandelbrot(&all);
+		mlx_put_image_to_window(all.mlx_ptr, all.win_ptr, all.img_ptr, 0, 0);
+		mlx_hook(all.win_ptr, 2, 3, key_hook_m, (void *)&all);
+	}
+	else if (ft_strcmp(argv[1], "-j") == 0)
+	{
+		init_julia(&all);
+		draw_julia(&all);
+		mlx_put_image_to_window(all.mlx_ptr, all.win_ptr, all.img_ptr, 0, 0);
+		mlx_hook(all.win_ptr, 2, 3, key_hook_j, (void *)&all);
+	}
 	mlx_loop(all.mlx_ptr);
 	return (0);
 }
