@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:05:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/26 17:22:37 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/27 19:09:43 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ void	clear_image(t_all *all)
 
 	i = 0;
 	j = 0;
-	data = mlx_get_data_addr(all->img_ptr, &all->bpp, &all->sizeline, &all->endian);
-	while (i < (HEIGHT * all->sizeline))
+	data = mlx_get_data_addr(all->img_ptr, &all->bpp, &all->sizeline,
+			&all->endian);
+	while (i < (H * all->sizeline))
 	{
 		data[i + 2] = 0;
 		data[i + 1] = 0;

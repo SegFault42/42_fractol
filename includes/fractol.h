@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/27 09:22:38 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/27 19:02:05 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@
 # define GREEN 0x00FF00
 # define BLUE 0x0000FF
 # define WHITE 0xFFFFFF
-# define BLACK 0x000000
+# define BLK 0x000000
 # define PURPLE 0x993299
 # define DARK_GREY 0x3b3b3b
-# define YELLOW 0xFFFF00
+# define YLW 0xFFFF00
 
-# define WIDTH 1280
-# define HEIGHT 720
+# define W 1280
+# define H 720
 
 typedef struct		s_all
 {
