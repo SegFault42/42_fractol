@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/26 19:14:19 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/27 09:01:49 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,6 @@
 
 # define WIDTH 1280
 # define HEIGHT 720
-
-//typedef struct		s_move
-//{
-	//float			zoom;
-	//float			max;
-//}					t_move;
 
 typedef struct		s_all
 {
@@ -76,6 +70,6 @@ void				draw_julia(t_all *all);
 int					key_hook_m(int keycode, t_all *all);
 int					key_hook_j(int keycode, t_all *all);
 void				clear_image(t_all *all);
-int				check_arguments(int *argc, char **argv);
+int					check_arguments(int *argc, char **argv);
 
 #endif
