@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:04:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/27 19:18:53 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/27 23:55:17 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,17 @@ void	draw_julia(t_all *all)
 				{
 					if (all->x < W && all->y < H && all->x > 0 && all->y > 0)
 					{
-						all->img_color = mlx_get_color_value(all->mlx_ptr, BLK);
-						ft_pixel_put_to_image(all);
+					all->b += 0;
+					all->g += 0;
+					all->r += 100;
+					ft_pixel_put_to_image_colors(all);
 					}
 				}
 				else if (all->x < W && all->y < H && all->x > 0 && all->y > 0)
 				{
-					all->b += 10;
+					all->b += 0;
+					all->g += 0;
+					all->b = all->i*255/all->max;
 					all->img_color = mlx_get_color_value(all->mlx_ptr, all->b);
 					ft_pixel_put_to_image(all);
 				}
@@ -85,15 +89,17 @@ void	draw_mandelbrot(t_all *all)
 				{
 					if (all->x < W && all->y < H && all->x > 0 && all->y > 0)
 					{
-						all->img_color = mlx_get_color_value(all->mlx_ptr, YLW);
-						ft_pixel_put_to_image(all);
+					all->b += 0;
+					all->g += 0;
+					all->r += 70;
+					ft_pixel_put_to_image_colors(all);
 					}
 				}
 				else if (all->x < W && all->y < H && all->x > 0 && all->y > 0)
 				{
-					all->r = 0;
-					all->g = 0;
-					all->b = all->i * 255 / all->max;
+					all->r += 0;
+					all->g += 0;
+					all->b = all->i*255/all->max;
 					all->img_color = mlx_get_color_value(all->mlx_ptr, all->b);
 					ft_pixel_put_to_image(all);
 				}

@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/27 19:02:05 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/27 19:55:25 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 # define DARK_GREY 0x3b3b3b
 # define YLW 0xFFFF00
 
-# define W 1280
-# define H 720
+# define W 1920
+# define H 1080
 
 typedef struct		s_all
 {
@@ -67,6 +67,7 @@ int					check_arguments(int *argc, char **argv);
 int					key_hook_m(int keycode, t_all *all);
 int					key_hook_j(int keycode, t_all *all);
 void				ft_pixel_put_to_image(t_all *all);
+void				ft_pixel_put_to_image_colors(t_all *all);
 void				init_mandelbrot(t_all *all);
 void				draw_mandelbrot(t_all *all);
 void				init_mandelbrot(t_all *all);

@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:05:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/27 19:09:43 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/27 20:10:58 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int		key_hook_m(int keycode, t_all *all)
 	if (keycode == KEY_UP)
 	{
 		clear_image(all);
-		all->max += 0.1;
+		all->max += 1;
 		printf("%f\n", all->max);
 		draw_mandelbrot(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
