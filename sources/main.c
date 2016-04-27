@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:04:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/26 19:12:19 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/27 09:23:46 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,7 @@ void	draw_julia(t_all *all)
 				}
 				else if (all->x < WIDTH && all->y < HEIGHT && all->x > 0 && all->y > 0)
 				{
-					all->r = 0;
-					all->g = 110;
-					all->b = all->i*255/all->max;
+					all->b = all->i * 255 / all->max;
 					all->img_color = mlx_get_color_value(all->mlx_ptr, all->b);
 					ft_pixel_put_to_image(all);
 				}
@@ -104,35 +102,6 @@ void	draw_mandelbrot(t_all *all)
 		}
 		all->x++;
 	}
-}
-
-void	init_mlx(t_all *all)
-{
-	all->mlx_ptr = mlx_init();
-	all->img_ptr = mlx_new_image(all->mlx_ptr, WIDTH, HEIGHT);
-	all->data = mlx_get_data_addr(all->img_ptr, &all->bpp, &all->sizeline, &all->endian);
-	all->win_ptr = mlx_new_window(all->mlx_ptr, WIDTH, HEIGHT, "Fractol");
-	all->img_color = mlx_get_color_value(all->mlx_ptr, GREEN);
-}
-
-void	init_julia(t_all *all)
-{
-	all->x1 = -1.6;
-	all->x2 = 2;
-	all->y1 = -1.2;
-	all->y2 = 2;
-	all->zoom = 400;
-	all->max = 150;
-}
-
-void	init_mandelbrot(t_all *all)
-{
-	all->x1 = -2.1;
-	all->x2 = 0.6;
-	all->y1 = -1.2;
-	all->y2 = 1.2;
-	all->zoom = 200;
-	all->max = 50;
 }
 
 int		main(int argc, char **argv)

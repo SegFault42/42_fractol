@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/27 09:08:09 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/27 09:22:38 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,16 @@ typedef struct		s_all
 	unsigned char	b;
 }					t_all;
 
-void				ft_pixel_put_to_image(t_all *all);
-void				draw_mandelbrot(t_all *all);
-void				init_mandelbrot(t_all *all);
-void				draw_julia(t_all *all);
+int					check_arguments(int *argc, char **argv);
 int					key_hook_m(int keycode, t_all *all);
 int					key_hook_j(int keycode, t_all *all);
+void				ft_pixel_put_to_image(t_all *all);
+void				init_mandelbrot(t_all *all);
+void				draw_mandelbrot(t_all *all);
+void				init_mandelbrot(t_all *all);
 void				clear_image(t_all *all);
-int					check_arguments(int *argc, char **argv);
+void				draw_julia(t_all *all);
+void				init_julia(t_all *all);
+void				init_mlx(t_all *all);
 
 #endif

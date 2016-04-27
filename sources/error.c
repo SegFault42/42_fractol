@@ -6,19 +6,11 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 23:44:51 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/25 11:59:51 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/27 09:11:16 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-
-/*void	draw_fractal(char **argv)*/
-/*{*/
-	/*if (argv[1] == "-m")*/
-		/*draw_mandelbrot();*/
-	/*else if (argv[1] == "-j")*/
-		/*draw_julia();*/
-/*}*/
 
 int	check_arguments(int *argc, char **argv)
 {
@@ -31,4 +23,3 @@ int	check_arguments(int *argc, char **argv)
 	}
 	return (EXIT_SUCCESS);
 }
-
