@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:05:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/28 21:42:33 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/28 23:45:13 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,28 @@ void	clear_image(t_all *all)
 		i += 4;
 	}
 	mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+}
+
+int		mouse_hook(int button, int x, int y, t_all *all)
+{
+	x = W;
+	y = H;
+
+	if (button == SCROLL_UP)
+	{
+		clear_image(all);
+		all->zoom *= 1.1;
+		draw_mandelbrot(all);
+		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+	}
+	if (button == SCROLL_DOWN)
+	{
+		clear_image(all);
+		all->zoom /= 1.1;
+		draw_mandelbrot(all);
+		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+	}
+		return (0);
 }
 
 int		key_hook_m(int keycode, t_all *all)

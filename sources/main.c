@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:04:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/28 23:02:22 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/28 23:36:39 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int		main(int argc, char **argv)
 		init_mandelbrot(&all);
 		draw_mandelbrot(&all);
 		mlx_put_image_to_window(all.mlx_ptr, all.win_ptr, all.img_ptr, 0, 0);
+		mlx_mouse_hook(all.win_ptr, mouse_hook, (void *)&all);
 		mlx_hook(all.win_ptr, 2, 3, key_hook_m, (void *)&all);
 	}
 	else if (ft_strcmp(argv[1], "-julia") == 0)

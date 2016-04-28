@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/28 21:15:53 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/28 23:07:33 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/28 23:12:56 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,9 @@ void	draw_mandelbrot(t_all *all)
 				}
 				else if (all->x < W && all->y < H && all->x > 0 && all->y > 0)
 				{
-					all->b += all->i * 255 / all->max;
-					all->r += all->i * 255 / all->max;
-					all->g += all->i * 255 / all->max;
+					all->b += all->i * 205 / all->max;
+					all->r += all->i * 5 / all->max;
+					all->g += all->i * 55 / all->max;
 					all->img_color = mlx_get_color_value(all->mlx_ptr, all->b * all-> r * all-> g);
 					ft_pixel_put_to_image(all);
 				}

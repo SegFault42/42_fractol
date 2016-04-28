@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/28 22:05:24 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/28 23:36:31 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct		s_all
 	unsigned char	b;
 }					t_all;
 
+int		mouse_hook(int button, int x, int y, t_all *all);
 int					check_arguments(int *argc);
 int					key_hook_m(int keycode, t_all *all);
 int					key_hook_j(int keycode, t_all *all);
