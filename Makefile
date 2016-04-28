@@ -6,7 +6,7 @@
 #    By: rabougue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/10 19:16:51 by rabougue          #+#    #+#              #
-#    Updated: 2016/04/27 19:13:40 by rabougue         ###   ########.fr        #
+#    Updated: 2016/04/28 21:17:44 by rabougue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ END = \033[0m
 NAME = fractol
 FLAG = -Wall -Werror -Wextra -Ofast
 FRAMEWORK = -framework OpenGL -framework AppKit
-OBJS = ./main.o ./print_point.o ./key_hook.o ./error.o ./init.o
+OBJS = ./main.o ./print_point.o ./key_hook.o ./error.o ./init.o ./fractal.o
 LFT = -L./libft/ -lft
 LMLX = -L./minilibx_macos/ -lmlx
 HEAD = -I ./includes/fdf.h
