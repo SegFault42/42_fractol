@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/27 19:55:25 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/28 18:56:34 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,35 +29,35 @@
 # define DARK_GREY 0x3b3b3b
 # define YLW 0xFFFF00
 
-# define W 1920
-# define H 1080
+# define W 900
+# define H 900
 
 typedef struct		s_all
 {
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*img_ptr;
-	unsigned long	img_color;
+	unsigned long 	img_color;
 	char			*data;
 	int				sizeline;
 	int				endian;
 	int				bpp;
 	int				x;
 	int				y;
-	float			x1;
-	float			x2;
-	float			y1;
-	float			y2;
-	float			zoom;
-	float			max;
-	float			image_x;
-	float			image_y;
-	float			c_r;
-	float			c_i;
-	float			z_r;
-	float			z_i;
-	float			i;
-	float			tmp;
+	double			x1;
+	double			x2;
+	double			y1;
+	double			y2;
+	double			zoom;
+	double			max;
+	double			image_x;
+	double			image_y;
+	double			c_r;
+	double			c_i;
+	double			z_r;
+	double			z_i;
+	double			i;
+	double			tmp;
 	unsigned char	r;
 	unsigned char	g;
 	unsigned char	b;
@@ -66,6 +66,7 @@ typedef struct		s_all
 int					check_arguments(int *argc, char **argv);
 int					key_hook_m(int keycode, t_all *all);
 int					key_hook_j(int keycode, t_all *all);
+int					key_hook_ship(int keycode, t_all *all);
 void				ft_pixel_put_to_image(t_all *all);
 void				ft_pixel_put_to_image_colors(t_all *all);
 void				init_mandelbrot(t_all *all);
@@ -73,7 +74,9 @@ void				draw_mandelbrot(t_all *all);
 void				init_mandelbrot(t_all *all);
 void				clear_image(t_all *all);
 void				draw_julia(t_all *all);
+void				draw_ship(t_all *all);
 void				init_julia(t_all *all);
+void				init_ship(t_all *all);
 void				init_mlx(t_all *all);
 
 #endif
