@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:04:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/28 21:34:06 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/28 23:02:22 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		main(int argc, char **argv)
 {
 	t_all	all;
 
-	check_arguments(&argc, &(*argv));
+	check_arguments(&argc);
 	init_mlx(&all);
 	if (ft_strcmp(argv[1], "-burning_ship") == 0)
 	{
