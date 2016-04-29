@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:05:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/29 11:53:09 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/29 20:32:07 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,8 @@ void	clear_image(t_all *all)
 	mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 }
 
-int		mouse_hook(int button, int x, int y, t_all *all)
+int		mouse_hook_m(int button, t_all *all)
 {
-	x = W;
-	y = H;
-
 	if (button == SCROLL_UP)
 	{
 		clear_image(all);
@@ -55,12 +52,39 @@ int		mouse_hook(int button, int x, int y, t_all *all)
 	return (0);
 }
 
+int		mouse_hook_j(int button, int x, int y, t_all *all)
+{
+	all->mouse_x = x;
+	all->mouse_y = y;
+	if (button == CLICK_LEFT)
+	{
+		clear_image(all);
+		all->zoom *= 1.1;
+		all->x1 /=1.1;
+		all->y1 /=1.1;
+		draw_julia(all);
+		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+	}
+	if (button == CLICK_RIGHT)
+	{
+		clear_image(all);
+		all->zoom /= 1.1;
+		draw_julia(all);
+		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+	}
+	if (button == CLICK_RIGHT && x > 0 && y > 0)
+	{
+		printf("x = %d, y = %d\n", all->mouse_x, all->mouse_y);
+	}
+	return (0);
+}
+
 int		key_hook_m(int keycode, t_all *all)
 {
 	static double speed = 0.1;
 
 	if (keycode == KEY_1)
-		speed = 0.01;
+		speed = 0.0001;
 	if (keycode == KEY_2)
 		speed = 0.05;
 	if (keycode == KEY_3)
@@ -85,6 +109,7 @@ int		key_hook_m(int keycode, t_all *all)
 		all->max += 1;
 		draw_mandelbrot(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+		printf("Iteration + = %f\n", all->max);
 	}
 	if (keycode == KEY_O && all->max >= 2)
 	{
@@ -92,6 +117,7 @@ int		key_hook_m(int keycode, t_all *all)
 		all->max -= 1;
 		draw_mandelbrot(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+		printf("Iteration - = %f\n", all->max);
 	}
 	if (keycode == KEY_RIGHT)
 	{
@@ -132,36 +158,76 @@ int		key_hook_m(int keycode, t_all *all)
 
 int		key_hook_j(int keycode, t_all *all)
 {
+	static double speed = 0.1;
+
+	if (keycode == KEY_1)
+		speed = 0.01;
+	if (keycode == KEY_2)
+		speed = 0.05;
+	if (keycode == KEY_3)
+		speed = 0.1;
 	if (keycode == KEY_EQUAL)
 	{
 		clear_image(all);
-		all->zoom += 10;
+		all->zoom *= 1.1;
 		draw_julia(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 	}
 	if (keycode == KEY_MIN)
 	{
 		clear_image(all);
-		all->zoom -= 10;
+		all->zoom /= 1.1;
 		draw_julia(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 	}
-	if (keycode == KEY_UP)
+	if (keycode == KEY_P)
 	{
 		clear_image(all);
 		all->max += 1;
 		draw_julia(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 	}
-	if (keycode == KEY_DOWN && all->max >= 2)
+	if (keycode == KEY_O && all->max >= 2)
 	{
 		clear_image(all);
 		all->max -= 1;
 		draw_julia(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 	}
+	if (keycode == KEY_RIGHT)
+	{
+		clear_image(all);
+		all->x1 -= speed;
+		draw_julia(all);
+		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+	}
+	if (keycode == KEY_LEFT)
+	{
+		clear_image(all);
+		all->x1 += speed;
+		draw_julia(all);
+		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+	}
+	if (keycode == KEY_UP)
+	{
+		clear_image(all);
+		all->y1 += speed;
+		draw_julia(all);
+		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+	}
+	if (keycode == KEY_DOWN)
+	{
+		clear_image(all);
+		all->y1 -= speed;
+		draw_julia(all);
+		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+	}
 	if (keycode == KEY_ESC)
+	{
+		mlx_destroy_image(all->mlx_ptr, all->img_ptr);
+		mlx_destroy_window(all->mlx_ptr, all->win_ptr);
 		exit(EXIT_SUCCESS);
+	}
 	return (0);
 }
 

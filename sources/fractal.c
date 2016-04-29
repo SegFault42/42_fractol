@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/28 21:15:53 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/29 09:23:41 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/29 18:37:35 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 void	draw_julia(t_all *all)
 {
 	all->x = 0;
-	all->y = 0;
-	all->image_x = (all->x2 - all->x1) * all->zoom;
-	all->image_y = (all->y2 - all->y1) * all->zoom;
+	all->image_x = W;
+	all->image_y = H;
 	while (all->x < all->image_x)
 	{
 		all->y = 0;
@@ -25,9 +24,10 @@ void	draw_julia(t_all *all)
 		{
 			all->c_r = -0.70;
 			all->c_i = 0.27015;
-			all->z_r = all->x / all->zoom + all->x1;
-			all->z_i = all->y / all->zoom + all->y1;
+			all->z_r = (all->x + all->mouse_x) / all->zoom + all->x1;
+			all->z_i = (all->y + all->mouse_y) / all->zoom + all->y1;
 			all->i = 0;
+		/*printf("je suis la : x = %d, y = %d\n", all->mouse_x, all->mouse_y);*/
 			while (all->z_r * all->z_r + all->z_i * all->z_i < 4 && all->i
 			< all->max)
 			{
@@ -40,20 +40,20 @@ void	draw_julia(t_all *all)
 				{
 					if (all->x < W && all->y < H && all->x > 0 && all->y > 0)
 					{
-					all->b += 0;
-					all->g += 0;
-					all->b = 0;
-					all->img_color = mlx_get_color_value(all->mlx_ptr, all->b);
-					ft_pixel_put_to_image(all);
+						all->b = 255;
+						all->r = 255;
+						all->g = 255;
+						all->img_color = mlx_get_color_value(all->mlx_ptr, all->b * all-> r * all-> g);
+						ft_pixel_put_to_image_colors(all);
 					}
 				}
 				else if (all->x < W && all->y < H && all->x > 0 && all->y > 0)
 				{
-					all->b = all->i * 255 / all->max;
-					all->r += all->i * 255 / all->max;
-					all->g += all->i * 255 / all->max;
-					all->img_color = mlx_get_color_value(all->mlx_ptr, all->b * all-> r * all-> g);
-					ft_pixel_put_to_image_colors(all);
+					all->b = all->i - 10;
+					all->r = all->i * 100;
+					all->g = all->i + 255;
+					all->img_color = mlx_get_color_value(all->mlx_ptr, all->b * all-> r + all-> g);
+					ft_pixel_put_to_image(all);
 				}
 			}
 			all->y++;
@@ -91,15 +91,17 @@ void	draw_mandelbrot(t_all *all)
 						all->b = 255;
 						all->r = 255;
 						all->g = 255;
+						/*all->i = all->i - log(log(modulus(all->z_r, all->z_i)))/log(2);*/
 						all->img_color = mlx_get_color_value(all->mlx_ptr, all->b * all-> r * all-> g);
+						/*all->i = (((all->img_color * 3) -1)*all->i) / all->max;*/
 						ft_pixel_put_to_image_colors(all);
 					}
 				}
 				else if (all->x < W && all->y < H && all->x > 0 && all->y > 0)
 				{
-					all->b = all->i - 10;
+					all->b = all->i + 200;
 					all->r = all->i * 100;
-					all->g = all->i + 255;
+					all->g = all->i + 0;
 					all->img_color = mlx_get_color_value(all->mlx_ptr, all->b * all-> r + all-> g);
 					ft_pixel_put_to_image(all);
 				}
@@ -136,18 +138,21 @@ void	draw_ship(t_all *all)
 				{
 					if (all->x < W && all->y < H && all->x > 0 && all->y > 0)
 					{
-						all->b += 0;
-						all->g += 0;
-						all->r += 70;
+						all->b = 255;
+						all->r = 255;
+						all->g = 255;
+						/*all->i = all->i - log(log(modulus(all->z_r, all->z_i)))/log(2);*/
+						all->img_color = mlx_get_color_value(all->mlx_ptr, all->b * all-> r * all-> g);
+						/*all->i = (((all->img_color * 3) -1)*all->i) / all->max;*/
 						ft_pixel_put_to_image_colors(all);
 					}
 				}
 				else if (all->x < W && all->y < H && all->x > 0 && all->y > 0)
 				{
-					all->b = all->i * 255 / all->max;
-					all->r += all->i * 255 / all->max;
-					all->g += all->i * 255 / all->max;
-					all->img_color = mlx_get_color_value(all->mlx_ptr, all->b * all-> r * all-> g);
+					all->b = all->i + 200;
+					all->r = all->i * 100;
+					all->g = all->i + 0;
+					all->img_color = mlx_get_color_value(all->mlx_ptr, all->b * all-> r + all-> g);
 					ft_pixel_put_to_image(all);
 				}
 			}

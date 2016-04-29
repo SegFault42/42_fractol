@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/13 20:26:34 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/28 23:44:43 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/29 15:41:03 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@
 # define KEY_O 31
 # define KEY_P 35
 # define KEY_Q 12
-# define KEY_R 15
 # define KEY_S 1
 # define KEY_T 17
 # define KEY_U 32
@@ -107,8 +106,8 @@
 # define KEY_NUM_MINUS 78
 # define KEY_NUM_PLUS 69
 
-# define BUTTON_LEFT 1
-# define BUTTON_RIGHT 2
+# define CLICK_LEFT 1
+# define CLICK_RIGHT 2
 # define BUTTON_MIDDLE 3
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
