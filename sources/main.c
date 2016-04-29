@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:04:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/28 23:36:39 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/29 10:51:56 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int		main(int argc, char **argv)
 {
 	t_all	all;
 
-	check_arguments(&argc);
-	init_mlx(&all);
+	if (argc != 2)
+		check_arguments(&argc, *(&argv));
 	if (ft_strcmp(argv[1], "-burning_ship") == 0)
 	{
 		init_ship(&all);
@@ -30,7 +30,7 @@ int		main(int argc, char **argv)
 		mlx_put_image_to_window(all.mlx_ptr, all.win_ptr, all.img_ptr, 0, 0);
 		mlx_hook(all.win_ptr, 2, 3, key_hook_ship, (void *)&all);
 	}
-	if (ft_strcmp(argv[1], "-mandelbrot") == 0)
+	else if (ft_strcmp(argv[1], "-mandelbrot") == 0)
 	{
 		init_mandelbrot(&all);
 		draw_mandelbrot(&all);
@@ -52,6 +52,8 @@ int		main(int argc, char **argv)
 		mlx_put_image_to_window(all.mlx_ptr, all.win_ptr, all.img_ptr, 0, 0);
 		mlx_hook(all.win_ptr, 2, 3, key_hook_tricorne, (void *)&all);
 	}
+	else if (argv[1] != '\0')
+		check_arguments(&argc, *(&argv));
 	mlx_loop(all.mlx_ptr);
 	return (0);
 }

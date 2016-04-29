@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:05:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/28 23:45:13 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/29 09:40:48 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int		mouse_hook(int button, int x, int y, t_all *all)
 		draw_mandelbrot(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 	}
-		return (0);
+	return (0);
 }
 
 int		key_hook_m(int keycode, t_all *all)
@@ -98,7 +98,7 @@ int		key_hook_m(int keycode, t_all *all)
 	if (keycode == KEY_LEFT)
 	{
 		clear_image(all);
-		all->x1 /= 1.1;
+		all->x1 /= 1.01;
 		draw_mandelbrot(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 	}
@@ -117,8 +117,11 @@ int		key_hook_m(int keycode, t_all *all)
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 	}
 	if (keycode == KEY_ESC)
+	{
+		mlx_destroy_image(all->mlx_ptr, all->img_ptr);
+		mlx_destroy_window(all->mlx_ptr, all->win_ptr);
 		exit(EXIT_SUCCESS);
-	/*printf("zoom = %f\n", all->zoom);*/
+	}
 	return (0);
 }
 
