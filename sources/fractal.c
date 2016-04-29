@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/28 21:15:53 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/29 18:37:35 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/29 20:50:02 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	draw_julia(t_all *all)
 		{
 			all->c_r = -0.70;
 			all->c_i = 0.27015;
-			all->z_r = (all->x + all->mouse_x) / all->zoom + all->x1;
-			all->z_i = (all->y + all->mouse_y) / all->zoom + all->y1;
+			all->z_r = (all->x + W / 2 /*all->mouse_x*/) / all->zoom + all->x1;
+			all->z_i = (all->y + H / 2 /*all->mouse_y*/) / all->zoom + all->y1;
 			all->i = 0;
 		/*printf("je suis la : x = %d, y = %d\n", all->mouse_x, all->mouse_y);*/
 			while (all->z_r * all->z_r + all->z_i * all->z_i < 4 && all->i

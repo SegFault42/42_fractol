@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:05:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/29 20:32:07 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/29 21:04:28 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ int		mouse_hook_j(int button, int x, int y, t_all *all)
 	if (button == CLICK_LEFT)
 	{
 		clear_image(all);
-		all->zoom *= 1.1;
-		all->x1 /=1.1;
-		all->y1 /=1.1;
+		/*all->zoom *= 1.1;*/
+		all->x1 *=1.865;
+		all->y1 *=1.93;
 		draw_julia(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 	}
