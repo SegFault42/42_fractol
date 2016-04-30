@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:05:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/30 13:15:19 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/30 21:50:33 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	clear_image(t_all *all)
 	int		i;
 	int		j;
 	char	*data;
-
+	
 	i = 0;
 	j = 0;
 	data = mlx_get_data_addr(all->img_ptr, &all->bpp, &all->sizeline,
-			&all->endian);
+	&all->endian);
 	while (i < (H * all->sizeline))
 	{
 		data[i + 2] = 0;
@@ -37,14 +37,12 @@ int		mouse_hook_m(int button, t_all *all)
 {
 	if (button == SCROLL_UP)
 	{
-		clear_image(all);
 		all->zoom *= 1.1;
 		draw_mandelbrot(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 	}
 	if (button == SCROLL_DOWN)
 	{
-		clear_image(all);
 		all->zoom /= 1.1;
 		draw_mandelbrot(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
@@ -52,17 +50,32 @@ int		mouse_hook_m(int button, t_all *all)
 	return (0);
 }
 
-int		j_slide(int x, int y, int null, t_all *all)
+int		j_slide(int null, double x, int y, t_all *all)
 {
-	if (x > 0 && x <= W && y > 0 && y <= H)
+	if (x > 0 && x <= W)
 	{
-		printf("x = %d, y = %d\n", x, y);
+		if (y > 0 && y <= H)
+		{
+		clear_image(all);
+		if (x < W / 2)
+			all->c_r += 0.01;
+		else if (x > W / 2)
+			all->c_r -= 0.01;
+		/*all->c_r += -0.01;*/
+		/*printf("c_i = %f\n", all->c_i);*/
+		draw_julia(all);
+		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+		/*printf("x = %f, y = %d, null = %d, c_i = %f\n", x, y, null, all->c_i);*/
+		mlx_string_put(all->mlx_ptr, all->win_ptr, x, y, RED, "lol");
+		}
 	}
 	return (0);
 }
 
 int		mouse_hook_j(int button, int x, int y, t_all *all)
 {
+	if (y > 0)
+	{
 		if (button == CLICK_LEFT)
 		{
 			clear_image(all);
@@ -71,7 +84,7 @@ int		mouse_hook_j(int button, int x, int y, t_all *all)
 			all->y1 /=1.13;
 			draw_julia(all);
 			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-			printf("x = %d, y = %d\n", all->mouse_x, all->mouse_y);
+			/*printf("x = %d, y = %d\n", all->mouse_x, all->mouse_y);*/
 		}
 		if (button == CLICK_RIGHT)
 		{
@@ -82,8 +95,9 @@ int		mouse_hook_j(int button, int x, int y, t_all *all)
 		}
 		if (button == CLICK_RIGHT && x > 0 && y > 0)
 		{
-			printf("x = %d, y = %d\n", all->mouse_x, all->mouse_y);
+			/*printf("x = %d, y = %d\n", all->mouse_x, all->mouse_y);*/
 		}
+	}
 	return (0);
 }
 
@@ -191,14 +205,14 @@ int		key_hook_j(int keycode, t_all *all)
 	if (keycode == KEY_P)
 	{
 		clear_image(all);
-		all->max += 50;
+		all->max += 10;
 		draw_julia(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 	}
 	if (keycode == KEY_O && all->max >= 2)
 	{
 		clear_image(all);
-		all->max -= 50;
+		all->max -= 10;
 		draw_julia(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 	}
@@ -316,6 +330,7 @@ int		key_hook_tricorne(int keycode, t_all *all)
 		clear_image(all);
 		all->zoom /= 1.1;
 		draw_tricorne(all);
+		clear_image(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 	}
 	if (keycode == KEY_P)

@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 09:15:20 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/29 20:16:54 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/30 19:48:07 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	init_julia(t_all *all)
 	all->y2 = 2;
 	all->zoom = 400;
 	all->max = 150;
+	all->c_r = -0.70;
+	all->c_i = 0.27015;
 }
 
 void	init_mandelbrot(t_all *all)
