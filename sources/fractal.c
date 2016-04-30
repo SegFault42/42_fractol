@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/28 21:15:53 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/30 20:46:18 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/30 23:51:53 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ void	draw_julia(t_all *all)
 				}
 				else if (all->x < W && all->y < H && all->x > 0 && all->y > 0)
 				{
-					all->b = all->i - 200;
-					all->r = all->i - 10;
-					all->g = all->i - 50;
+					all->b = all->i + 200;
+					all->r = all->i * 10;
+					all->g = all->i + 50;
 					all->img_color = mlx_get_color_value(all->mlx_ptr, all->b * all-> r + all-> g);
 					ft_pixel_put_to_image_colors(all);
 				}
@@ -129,20 +129,20 @@ void	draw_ship(t_all *all)
 				{
 					if (all->x < W && all->y < H && all->x > 0 && all->y > 0)
 					{
-						all->b = 255;
-						all->r = 255;
-						all->g = 255;
+						all->b = 1;
+						all->r = 1;
+						all->g = 1;
 						all->img_color = mlx_get_color_value(all->mlx_ptr, all->b * all-> r * all-> g);
 						ft_pixel_put_to_image_colors(all);
 					}
 				}
 				else if (all->x < W && all->y < H && all->x > 0 && all->y > 0)
 				{
-					all->b = all->i + 200;
-					all->r = all->i * 100;
-					all->g = all->i + 0;
+					all->b = all->i + all->b2;
+					all->r = all->i * all->r2;
+					all->g = all->i * all->g2;
 					all->img_color = mlx_get_color_value(all->mlx_ptr, all->b * all-> r + all-> g);
-					ft_pixel_put_to_image(all);
+					ft_pixel_put_to_image_colors(all);
 				}
 			}
 			all->y++;

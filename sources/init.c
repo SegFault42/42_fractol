@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 09:15:20 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/30 19:48:07 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/30 23:51:27 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,10 @@ void	init_julia(t_all *all)
 	all->y1 = -1.2;
 	all->y2 = 2;
 	all->zoom = 400;
-	all->max = 150;
+	all->max = 130;
 	all->c_r = -0.70;
 	all->c_i = 0.27015;
+	all->temp_x = all->x;
 }
 
 void	init_mandelbrot(t_all *all)
@@ -55,6 +56,9 @@ void	init_ship(t_all *all)
 	all->y2 = 1.2;
 	all->zoom = 200;
 	all->max = 50;
+	all->r2 = 0;
+	all->g2 = 0;
+	all->b2 = 0;
 }
 
 void	init_tricorne(t_all *all)

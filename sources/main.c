@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:04:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/30 18:56:28 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/30 23:41:13 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ int		main(int argc, char **argv)
 	t_all	all;
 
 	if (argc != 2)
-		check_arguments(&argc, *(&argv));
+		check_arguments();
 	call_fractal_1(argv, &all);
 	/*else if (argv[1] != '\0')*/
-		/*check_arguments(&argc, *(&argv));*/
+		/*check_arguments();*/
 	mlx_loop(all.mlx_ptr);
 	return (0);
 }

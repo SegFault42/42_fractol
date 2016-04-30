@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/13 20:26:34 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/29 15:41:03 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/30 23:56:48 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@
 # define KEY_O 31
 # define KEY_P 35
 # define KEY_Q 12
+# define KEY_R 15
 # define KEY_S 1
 # define KEY_T 17
 # define KEY_U 32

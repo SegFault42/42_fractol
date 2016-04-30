@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:05:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/30 21:50:33 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/01 00:03:26 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ int		j_slide(int null, double x, int y, t_all *all)
 		else if (x > W / 2)
 			all->c_r -= 0.01;
 		/*all->c_r += -0.01;*/
-		/*printf("c_i = %f\n", all->c_i);*/
+		printf("c_i = %f\n", all->c_i);
 		draw_julia(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-		/*printf("x = %f, y = %d, null = %d, c_i = %f\n", x, y, null, all->c_i);*/
+		printf("x = %f, y = %d, null = %d, c_i = %f\n", x, y, null, all->c_i);
 		mlx_string_put(all->mlx_ptr, all->win_ptr, x, y, RED, "lol");
 		}
 	}
@@ -311,8 +311,51 @@ int		key_hook_ship(int keycode, t_all *all)
 		draw_ship(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 	}
+		if (keycode == KEY_R)
+		{
+			clear_image(all);
+			all->r2++;
+			draw_ship(all);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+		}
+		if (keycode == KEY_G)
+		{
+			clear_image(all);
+			all->g2++;
+			draw_ship(all);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+		}
+		if (keycode == KEY_B)
+		{
+			clear_image(all);
+			all->b2++;
+			draw_ship(all);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+		}
+		if (keycode == KEY_E)
+		{
+			clear_image(all);
+			all->r2--;
+			draw_ship(all);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+		}
+		if (keycode == KEY_F)
+		{
+			clear_image(all);
+			all->g2--;
+			draw_ship(all);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+		}
+		if (keycode == KEY_V)
+		{
+			clear_image(all);
+			all->b2--;
+			draw_ship(all);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+	}
 	if (keycode == KEY_ESC)
 		exit(EXIT_SUCCESS);
+	printf("Value RED = %d, Value GREEN = %d, Value BLUE = %d\n", all->r2, all->g2, all->b2);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/30 19:15:29 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/30 23:50:44 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,12 @@ typedef struct		s_all
 	unsigned char	r;
 	unsigned char	g;
 	unsigned char	b;
+	double			temp_x;
+	double			temp_y;
+
+	unsigned char	r2;
+	unsigned char	g2;
+	unsigned char	b2;
 }					t_all;
 
 int					j_slide(int null, double x, int y, t_all *all);
@@ -69,7 +75,7 @@ void				call_fractal_2(char **argv, t_all *all);
 double				modulus(double a, double b);
 int					mouse_hook_j(int button, int y, int x, t_all *all);
 int					mouse_hook_m(int button, t_all *all);
-int					check_arguments(int *argc, char **argv);
+int					check_arguments(void);
 int					key_hook_m(int keycode, t_all *all);
 int					key_hook_j(int keycode, t_all *all);
 int					key_hook_ship(int keycode, t_all *all);
