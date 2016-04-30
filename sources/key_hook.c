@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:05:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/29 21:04:28 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/30 09:57:13 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,28 +54,34 @@ int		mouse_hook_m(int button, t_all *all)
 
 int		mouse_hook_j(int button, int x, int y, t_all *all)
 {
-	all->mouse_x = x;
-	all->mouse_y = y;
-	if (button == CLICK_LEFT)
-	{
-		clear_image(all);
-		/*all->zoom *= 1.1;*/
-		all->x1 *=1.865;
-		all->y1 *=1.93;
-		draw_julia(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (button == CLICK_RIGHT)
-	{
-		clear_image(all);
-		all->zoom /= 1.1;
-		draw_julia(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (button == CLICK_RIGHT && x > 0 && y > 0)
-	{
-		printf("x = %d, y = %d\n", all->mouse_x, all->mouse_y);
-	}
+	/*if (x > 0 && x <= W*/
+	/*{*/
+		/*if (y > 0 && y <= H)*/
+		/*{*/
+		if (button == CLICK_LEFT)
+		{
+			clear_image(all);
+			all->zoom *= 1.1;
+			all->x1 /=1.165;
+			all->y1 /=1.13;
+			draw_julia(all);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+			printf("x = %d, y = %d\n", all->mouse_x, all->mouse_y);
+		}
+		if (button == CLICK_RIGHT)
+		{
+			clear_image(all);
+			all->zoom /= 1.1;
+			draw_julia(all);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+		}
+		if (button == CLICK_RIGHT && x > 0 && y > 0)
+		{
+			printf("x = %d, y = %d\n", all->mouse_x, all->mouse_y);
+		}
+			printf("loul : x = %d, y = %d\n", x, y);
+		/*}*/
+	/*}*/
 	return (0);
 }
 
@@ -106,7 +112,7 @@ int		key_hook_m(int keycode, t_all *all)
 	if (keycode == KEY_P)
 	{
 		clear_image(all);
-		all->max += 1;
+		all->max += 10;
 		draw_mandelbrot(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 		printf("Iteration + = %f\n", all->max);
@@ -114,7 +120,7 @@ int		key_hook_m(int keycode, t_all *all)
 	if (keycode == KEY_O && all->max >= 2)
 	{
 		clear_image(all);
-		all->max -= 1;
+		all->max -= 10;
 		draw_mandelbrot(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 		printf("Iteration - = %f\n", all->max);
@@ -183,14 +189,14 @@ int		key_hook_j(int keycode, t_all *all)
 	if (keycode == KEY_P)
 	{
 		clear_image(all);
-		all->max += 1;
+		all->max += 50;
 		draw_julia(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 	}
 	if (keycode == KEY_O && all->max >= 2)
 	{
 		clear_image(all);
-		all->max -= 1;
+		all->max -= 50;
 		draw_julia(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 	}

@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/29 17:43:45 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/30 11:11:04 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 # define DARK_GREY 0x3b3b3b
 # define YLW 0xFFFF00
 
-# define W 900
-# define H 900
+# define W 1280
+# define H 720
 
 typedef struct		s_all
 {
@@ -63,10 +63,18 @@ typedef struct		s_all
 	unsigned char	b;
 	int				mouse_x;
 	int				mouse_y;
+	double			xx1;
+	double			xx2;
+	double			yy1;
+	double			yy2;
+	double			new_max;
+	double			new_zoom;
 }					t_all;
 
+void				call_fractal_1(char **argv, t_all *all);
+void				call_fractal_2(char **argv, t_all *all);
 double				modulus(double a, double b);
-int					mouse_hook_j(int button, int x, int y, t_all *all);
+int					mouse_hook_j(int button, int y, int x, t_all *all);
 int					mouse_hook_m(int button, t_all *all);
 int					check_arguments(int *argc, char **argv);
 int					key_hook_m(int keycode, t_all *all);
