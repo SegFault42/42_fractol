@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:05:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/30 09:57:13 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/30 13:15:19 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,17 @@ int		mouse_hook_m(int button, t_all *all)
 	return (0);
 }
 
+int		j_slide(int x, int y, int null, t_all *all)
+{
+	if (x > 0 && x <= W && y > 0 && y <= H)
+	{
+		printf("x = %d, y = %d\n", x, y);
+	}
+	return (0);
+}
+
 int		mouse_hook_j(int button, int x, int y, t_all *all)
 {
-	/*if (x > 0 && x <= W*/
-	/*{*/
-		/*if (y > 0 && y <= H)*/
-		/*{*/
 		if (button == CLICK_LEFT)
 		{
 			clear_image(all);
@@ -79,9 +84,6 @@ int		mouse_hook_j(int button, int x, int y, t_all *all)
 		{
 			printf("x = %d, y = %d\n", all->mouse_x, all->mouse_y);
 		}
-			printf("loul : x = %d, y = %d\n", x, y);
-		/*}*/
-	/*}*/
 	return (0);
 }
 

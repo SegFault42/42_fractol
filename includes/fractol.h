@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/30 11:11:04 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/04/30 13:15:30 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ typedef struct		s_all
 	double			new_zoom;
 }					t_all;
 
+int					j_slide(int x, int y, int null, t_all *all);
 void				call_fractal_1(char **argv, t_all *all);
 void				call_fractal_2(char **argv, t_all *all);
 double				modulus(double a, double b);
