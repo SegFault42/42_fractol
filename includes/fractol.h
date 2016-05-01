@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/01 18:10:56 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/01 23:40:43 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct		s_all
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*img_ptr;
-	unsigned long 	img_color;
+	unsigned long	img_color;
 	char			*data;
 	int				sizeline;
 	int				endian;
@@ -76,6 +76,7 @@ double				modulus(double a, double b);
 int					mouse_hook_j(int button, int y, int x, t_all *all);
 int					mouse_hook_m(int button, t_all *all);
 int					check_arguments(void);
+int					key_hook_m2(int keycode, int (*funct_ptr)(), t_all *all);
 int					key_hook_m(int keycode, t_all *all);
 int					key_hook_j(int keycode, t_all *all);
 int					key_hook_ship(int keycode, t_all *all);

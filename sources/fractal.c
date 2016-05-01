@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/28 21:15:53 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/01 22:50:59 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/01 23:30:59 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	draw_julia(t_all *all)
 			all->z_r = all->x / all->zoom + all->x1;
 			all->z_i = all->y / all->zoom + all->y1;
 			all->i = 0;
-			while (all->z_r * all->z_r + all->z_i * all->z_i < 4 && all->i < all->max)
+			while (all->z_r * all->z_r + all->z_i * all->z_i < 4 && all->i
+					< all->max)
 			{
 				all->tmp = all->z_r;
 				all->z_r = (all->z_r * all->z_r) - (all->z_i * all->z_i)
@@ -39,7 +40,8 @@ void	draw_julia(t_all *all)
 						all->b = 1;
 						all->r = 1;
 						all->g = 1;
-						all->img_color = mlx_get_color_value(all->mlx_ptr, all->b * all-> r * all-> g);
+						all->img_color = mlx_get_color_value(all->mlx_ptr,
+								all->b * all->r * all->g);
 						ft_pixel_put_to_image_colors(all);
 					}
 				}
@@ -48,7 +50,8 @@ void	draw_julia(t_all *all)
 					all->b = all->i + all->b2;
 					all->r = all->i * all->r2;
 					all->g = all->i * all->g2;
-					all->img_color = mlx_get_color_value(all->mlx_ptr, all->b + all-> r * all-> g);
+					all->img_color = mlx_get_color_value(all->mlx_ptr,
+							all->b + all->r * all->g);
 					ft_pixel_put_to_image_colors(all);
 				}
 			}
@@ -73,7 +76,8 @@ void	draw_mandelbrot(t_all *all)
 			all->z_r = 0;
 			all->z_i = 0;
 			all->i = 0;
-			while (all->z_r * all->z_r + all->z_i * all->z_i < 4 && all->i < all->max)
+			while (all->z_r * all->z_r + all->z_i * all->z_i < 4 && all->i
+					< all->max)
 			{
 				all->tmp = all->z_r;
 				all->z_r = (all->z_r * all->z_r) - (all->z_i * all->z_i)
@@ -87,7 +91,8 @@ void	draw_mandelbrot(t_all *all)
 						all->b = 1;
 						all->r = 1;
 						all->g = 1;
-						all->img_color = mlx_get_color_value(all->mlx_ptr, all->b * all-> r * all-> g);
+						all->img_color = mlx_get_color_value(all->mlx_ptr,
+								all->b * all->r * all->g);
 						ft_pixel_put_to_image_colors(all);
 					}
 				}
@@ -96,7 +101,8 @@ void	draw_mandelbrot(t_all *all)
 					all->b = all->i + all->b2;
 					all->r = all->i * all->r2;
 					all->g = all->i * all->g2;
-					all->img_color = mlx_get_color_value(all->mlx_ptr, all->b + all-> r * all-> g);
+					all->img_color = mlx_get_color_value(all->mlx_ptr,
+							all->b + all->r * all->g);
 					ft_pixel_put_to_image_colors(all);
 				}
 			}
@@ -121,7 +127,8 @@ void	draw_ship(t_all *all)
 			all->z_r = 0;
 			all->z_i = 0;
 			all->i = 0;
-			while (all->z_r * all->z_r + all->z_i * all->z_i < 4 && all->i < all->max)
+			while (all->z_r * all->z_r + all->z_i * all->z_i < 4 && all->i
+					< all->max)
 			{
 				all->tmp = all->z_r;
 				all->z_r = fabs((all->z_r * all->z_r) - (all->z_i * all->z_i)
@@ -135,7 +142,8 @@ void	draw_ship(t_all *all)
 						all->b = 1;
 						all->r = 1;
 						all->g = 1;
-						all->img_color = mlx_get_color_value(all->mlx_ptr, all->b * all-> r * all-> g);
+						all->img_color = mlx_get_color_value(all->mlx_ptr,
+								all->b * all->r * all->g);
 						ft_pixel_put_to_image_colors(all);
 					}
 				}
@@ -144,7 +152,8 @@ void	draw_ship(t_all *all)
 					all->b = all->i + all->b2;
 					all->r = all->i * all->r2;
 					all->g = all->i * all->g2;
-					all->img_color = mlx_get_color_value(all->mlx_ptr, all->b + all-> r * all-> g);
+					all->img_color = mlx_get_color_value(all->mlx_ptr,
+							all->b + all->r * all->g);
 					ft_pixel_put_to_image_colors(all);
 				}
 			}
@@ -169,7 +178,8 @@ void	draw_tricorne(t_all *all)
 			all->z_r = 0;
 			all->z_i = 0;
 			all->i = 0;
-			while (all->z_r * all->z_r + all->z_i * all->z_i < 4 && all->i < all->max)
+			while (all->z_r * all->z_r + all->z_i * all->z_i < 4 && all->i
+					< all->max)
 			{
 				all->tmp = all->z_r;
 				all->z_r = (all->z_r * all->z_r) - (all->z_i * all->z_i)
@@ -189,7 +199,8 @@ void	draw_tricorne(t_all *all)
 					all->b = all->i * 255 / all->max;
 					all->r += all->i * 255 / all->max;
 					all->g += all->i * 255 / all->max;
-					all->img_color = mlx_get_color_value(all->mlx_ptr, all->b * all-> r * all-> g);
+					all->img_color = mlx_get_color_value(all->mlx_ptr,
+							all->b * all->r * all->g);
 					ft_pixel_put_to_image(all);
 				}
 			}
@@ -198,4 +209,3 @@ void	draw_tricorne(t_all *all)
 		all->x++;
 	}
 }
-
