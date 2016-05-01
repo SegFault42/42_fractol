@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 09:15:20 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/30 23:51:27 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/01 14:29:11 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	init_julia(t_all *all)
 	all->y1 = -1.2;
 	all->y2 = 2;
 	all->zoom = 400;
-	all->max = 130;
+	all->max = 10;
 	all->c_r = -0.70;
 	all->c_i = 0.27015;
 	all->temp_x = all->x;

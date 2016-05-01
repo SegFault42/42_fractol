@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/04/30 23:50:44 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/01 18:10:56 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,6 @@ void				init_mandelbrot(t_all *all);
 void				init_julia(t_all *all);
 void				init_ship(t_all *all);
 void				init_mlx(t_all *all);
+void				draw_cross(t_all *all);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:05:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/01 00:03:26 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/01 22:46:46 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,31 @@ void	clear_image(t_all *all)
 	mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 }
 
+void	draw_cross(t_all *all)
+{
+	int x = 0;
+	int y = 0;
+	while (y <= H)
+	{
+		while (x <= W)
+		{
+			if (x == W / 2)
+			{
+				all->temp_x = x;
+				all->temp_y = y;
+				/*all->img_color = mlx_get_color_value(all->mlx_ptr, RED);*/
+				/*ft_pixel_put_to_image(all);*/
+				mlx_pixel_put(all->mlx_ptr, all->win_ptr, x, y, RED);
+			}
+			x++;
+			if (y == H / 2)
+				mlx_pixel_put(all->mlx_ptr, all->win_ptr, x, y, RED);
+		}
+		y++;
+		x = 0;
+	}
+}
+
 int		mouse_hook_m(int button, t_all *all)
 {
 	if (button == SCROLL_UP)
@@ -52,23 +77,22 @@ int		mouse_hook_m(int button, t_all *all)
 
 int		j_slide(int null, double x, int y, t_all *all)
 {
-	if (x > 0 && x <= W)
+	if (x > 0 && x <= W && y > 0 && y <= H)
 	{
-		if (y > 0 && y <= H)
-		{
-		clear_image(all);
-		if (x < W / 2)
-			all->c_r += 0.01;
-		else if (x > W / 2)
-			all->c_r -= 0.01;
-		/*all->c_r += -0.01;*/
-		printf("c_i = %f\n", all->c_i);
-		draw_julia(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-		printf("x = %f, y = %d, null = %d, c_i = %f\n", x, y, null, all->c_i);
-		mlx_string_put(all->mlx_ptr, all->win_ptr, x, y, RED, "lol");
-		}
+			clear_image(all);
+			if (x < W / 2 && y < H / 2) // haut gauche;
+				all->c_r += 0.02;
+			else if (x > W / 2 && y < H / 2) // haut droite;
+				all->c_r -= 0.02;
+			else if (x < W / 2 && y > H / 2) // bas gauche;
+				all->c_i += 0.02;
+			else if (x > W / 2 && y > H / 2) // bas droite;
+				all->c_i -= 0.02;
+			draw_julia(all);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 	}
+	draw_cross(all);
+	(void)null;
 	return (0);
 }
 
@@ -175,13 +199,56 @@ int		key_hook_m(int keycode, t_all *all)
 		mlx_destroy_window(all->mlx_ptr, all->win_ptr);
 		exit(EXIT_SUCCESS);
 	}
+		if (keycode == KEY_R)
+		{
+			clear_image(all);
+			all->r2++;
+			draw_mandelbrot(all);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+		}
+		if (keycode == KEY_G)
+		{
+			clear_image(all);
+			all->g2++;
+			draw_mandelbrot(all);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+		}
+		if (keycode == KEY_B)
+		{
+			clear_image(all);
+			all->b2++;
+			draw_mandelbrot(all);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+		}
+		if (keycode == KEY_E)
+		{
+			clear_image(all);
+			all->r2--;
+			draw_mandelbrot(all);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+		}
+		if (keycode == KEY_F)
+		{
+			clear_image(all);
+			all->g2--;
+			draw_mandelbrot(all);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+		}
+		if (keycode == KEY_V)
+		{
+			clear_image(all);
+			all->b2--;
+			draw_mandelbrot(all);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+	}
 	return (0);
 }
 
 int		key_hook_j(int keycode, t_all *all)
 {
 	static double speed = 0.1;
-
+	static int pause = 1;
+	printf("%d\n", pause);
 	if (keycode == KEY_1)
 		speed = 0.01;
 	if (keycode == KEY_2)
@@ -250,6 +317,55 @@ int		key_hook_j(int keycode, t_all *all)
 		mlx_destroy_window(all->mlx_ptr, all->win_ptr);
 		exit(EXIT_SUCCESS);
 	}
+		if (keycode == KEY_R)
+		{
+			clear_image(all);
+			all->r2++;
+			draw_julia(all);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+		}
+		if (keycode == KEY_G)
+		{
+			clear_image(all);
+			all->g2++;
+			draw_julia(all);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+		}
+		if (keycode == KEY_B)
+		{
+			clear_image(all);
+			all->b2++;
+			draw_julia(all);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+		}
+		if (keycode == KEY_E)
+		{
+			clear_image(all);
+			all->r2--;
+			draw_julia(all);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+		}
+		if (keycode == KEY_F)
+		{
+			clear_image(all);
+			all->g2--;
+			draw_julia(all);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+		}
+		if (keycode == KEY_V)
+		{
+			clear_image(all);
+			all->b2--;
+			draw_julia(all);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+	}
+	if (keycode == KEY_F1)
+		pause = 1 ;
+	if (keycode == KEY_F2)
+		pause = 0 ;
+	if (pause == 0)
+		mlx_hook(all->win_ptr, 6, 1L<<6, j_slide, (void *)all);
+
 	return (0);
 }
 
