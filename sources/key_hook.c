@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:05:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/02 01:14:00 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/02 11:46:55 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,26 +33,17 @@ void	clear_image(t_all *all)
 	mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 }
 
-void	draw_cross(t_all *all)
+void	draw_cross(t_all *all, int x, int y, int color)
 {
-	int x;
-	int y;
-
-	x = 0;
-	y = 0;
 	while (y <= H)
 	{
 		while (x <= W)
 		{
 			if (x == W / 2)
-			{
-				all->temp_x = x;
-				all->temp_y = y;
-				mlx_pixel_put(all->mlx_ptr, all->win_ptr, x, y, RED);
-			}
+				mlx_pixel_put(all->mlx_ptr, all->win_ptr, x, y, color);
 			x++;
 			if (y == H / 2)
-				mlx_pixel_put(all->mlx_ptr, all->win_ptr, x, y, RED);
+				mlx_pixel_put(all->mlx_ptr, all->win_ptr, x, y, color);
 		}
 		y++;
 		x = 0;
@@ -92,35 +83,71 @@ int		j_slide(int null, double x, int y, t_all *all)
 		draw_julia(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 	}
-	draw_cross(all);
+	draw_cross(all, 0, 0, WHITE);
 	(void)null;
 	return (0);
 }
 
+double toFractal(t_all *all, int a)
+{
+	return a/all->zoom;
+}
+
 int		mouse_hook_j(int button, int x, int y, t_all *all)
 {
+	static double x_reel = 0;
+	static double y_reel = 0;
 	if (y > 0)
 	{
-		if (button == CLICK_LEFT)
+		if (button == SCROLL_UP)
 		{
 			clear_image(all);
+			x_reel = toFractal(all, x) + all->x1;
+			y_reel = toFractal(all, y) + all->y1;
 			all->zoom *= 1.1;
-			all->x1 /= 1.165;
-			all->y1 /= 1.13;
+			all->x1 = x_reel - toFractal(all, 500) / 2;
+			all->y1 = y_reel - toFractal(all, 500) / 2;
+			/*all->x1 /= 1.165;*/
+			/*all->y1 /= 1.13;*/
 			draw_julia(all);
 			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr,
 					all->img_ptr, 0, 0);
 		}
-		if (button == CLICK_RIGHT)
+		if (button == SCROLL_DOWN)
 		{
 			clear_image(all);
+			x_reel = toFractal(all, x) + all->x1;
+			y_reel = toFractal(all, y) + all->y1;
 			all->zoom /= 1.1;
+			all->x1 = x_reel - toFractal(all, 500) / 2;
+			all->y1 = y_reel - toFractal(all, 500) / 2;
 			draw_julia(all);
 			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr,
 					all->img_ptr, 0, 0);
 		}
 	}
 	(void)x;
+	return (0);
+}
+
+int		key_hook_m2(int keycode, t_all *all)
+{
+	if (keycode == KEY_EQUAL)
+	{
+		clear_image(all);
+		all->zoom *= 1.1;
+		draw_mandelbrot(all);
+		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr,
+				all->img_ptr, 0, 0);
+	}
+	if (keycode == KEY_MIN)
+	{
+		clear_image(all);
+		all->zoom /= 1.1;
+		draw_mandelbrot(all);
+		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr,
+				all->img_ptr, 0, 0);
+	}
 	return (0);
 }
 
@@ -246,9 +273,15 @@ int		key_hook_m(int keycode, t_all *all)
 int		key_hook_j(int keycode, t_all *all)
 {
 	static double	speed = 0.1;
-	static int		pause = 1;
+	static int		bool = 0;
 
-	printf("%d\n", pause);
+		printf("%d\n", bool);
+	if (keycode == KEY_F1)
+		bool = 0;
+	if (keycode == KEY_F2)
+		bool = 1;
+	if (bool)
+		mlx_hook(all->win_ptr, 6, 1L << 6, j_slide, (void *)all);
 	if (keycode == KEY_1)
 		speed = 0.01;
 	if (keycode == KEY_2)
@@ -359,12 +392,6 @@ int		key_hook_j(int keycode, t_all *all)
 		draw_julia(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 	}
-	if (keycode == KEY_F1)
-		pause = 1;
-	if (keycode == KEY_F2)
-		pause = 0;
-	if (pause == 0)
-		mlx_hook(all->win_ptr, 6, 1L << 6, j_slide, (void *)all);
 	return (0);
 }
 

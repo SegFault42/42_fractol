@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:04:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/01 23:45:10 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/02 11:29:11 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	call_fractal_2(char **argv, t_all *all)
 		init_julia(all);
 		draw_julia(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-		draw_cross(all);
+		draw_cross(all, 0, 0, WHITE);
 		mlx_mouse_hook(all->win_ptr, mouse_hook_j, (void *)all);
 		mlx_hook(all->win_ptr, 2, 3, key_hook_j, (void *)all);
 	}
