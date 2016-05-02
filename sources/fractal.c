@@ -6,13 +6,13 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/28 21:15:53 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/02 23:37:58 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/03 00:56:29 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-void	draw_julia(t_all *all)
+void	draw_mandelbrot(t_all *all)
 {
 	clear_image(all);
 	all->x = 0;
@@ -23,8 +23,10 @@ void	draw_julia(t_all *all)
 		all->y = 0;
 		while (all->y < all->image_y)
 		{
-			all->z_r = all->x / all->zoom + all->x1;
-			all->z_i = all->y / all->zoom + all->y1;
+			all->c_r = all->x / all->zoom + all->x1;
+			all->c_i = all->y / all->zoom + all->y1;
+			all->z_r = 0;
+			all->z_i = 0;
 			all->i = 0;
 			while (all->z_r * all->z_r + all->z_i * all->z_i < 4 && all->i
 					< all->max)
@@ -63,7 +65,7 @@ void	draw_julia(t_all *all)
 	mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 }
 
-void	draw_mandelbrot(t_all *all)
+void	draw_julia(t_all *all)
 {
 	clear_image(all);
 	all->x = 0;
@@ -74,10 +76,8 @@ void	draw_mandelbrot(t_all *all)
 		all->y = 0;
 		while (all->y < all->image_y)
 		{
-			all->c_r = all->x / all->zoom + all->x1;
-			all->c_i = all->y / all->zoom + all->y1;
-			all->z_r = 0;
-			all->z_i = 0;
+			all->z_r = all->x / all->zoom + all->x1;
+			all->z_i = all->y / all->zoom + all->y1;
 			all->i = 0;
 			while (all->z_r * all->z_r + all->z_i * all->z_i < 4 && all->i
 					< all->max)
