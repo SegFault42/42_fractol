@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:04:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/02 11:29:11 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/02 19:44:54 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	call_fractal_1(char **argv, t_all *all)
 		init_mandelbrot(all);
 		draw_mandelbrot(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-		mlx_hook(all->win_ptr, 2, 3, key_hook_m, (void *)all);
+		mlx_mouse_hook(all->win_ptr, mouse_hook_m, (void *)all);
+		mlx_hook(all->win_ptr, 2, 3, key_hook_mandelbrot_1, (void *)all);
 	}
 	call_fractal_2(argv, all);
 }
@@ -47,7 +48,7 @@ void	call_fractal_2(char **argv, t_all *all)
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 		draw_cross(all, 0, 0, WHITE);
 		mlx_mouse_hook(all->win_ptr, mouse_hook_j, (void *)all);
-		mlx_hook(all->win_ptr, 2, 3, key_hook_j, (void *)all);
+		mlx_hook(all->win_ptr, 2, 3, key_hook_julia_1, (void *)all);
 	}
 }
 

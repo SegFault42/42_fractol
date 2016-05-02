@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/02 11:33:36 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/02 21:15:52 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 # define DARK_GREY 0x3b3b3b
 # define YLW 0xFFFF00
 
-# define W 500
-# define H 500
+# define W 600
+# define H 600
 
 typedef struct		s_all
 {
@@ -69,16 +69,26 @@ typedef struct		s_all
 	unsigned char	b2;
 }					t_all;
 
-int					j_slide(int null, double x, int y, t_all *all);
 void				call_fractal_1(char **argv, t_all *all);
 void				call_fractal_2(char **argv, t_all *all);
 double				modulus(double a, double b);
-int					mouse_hook_j(int button, int y, int x, t_all *all);
-int					mouse_hook_m(int button, t_all *all);
 int					check_arguments(void);
-//int					key_hook_m2(int keycode, int (*funct_ptr)(), t_all *all);
-int					key_hook_m(int keycode, t_all *all);
-int					key_hook_j(int keycode, t_all *all);
+
+int					key_hook_mandelbrot_1(int keycode, t_all *all);
+int					key_hook_mandelbrot_2(int keycode, t_all *all);
+int					key_hook_mandelbrot_3(int keycode, t_all *all);
+int					key_hook_mandelbrot_4(int keycode, t_all *all, void(*ft)(t_all *));
+int					key_hook_mandelbrot_5(int keycode, t_all *all);
+int					mouse_hook_m(int button, int y, int x, t_all *all);
+
+int					key_hook_julia_1(int keycode, t_all *all);
+int					key_hook_julia_2(int keycode, t_all *all);
+int					key_hook_julia_3(int keycode, t_all *all);
+int					key_hook_julia_4(int keycode, t_all *all);
+int					key_hook_julia_5(int keycode, t_all *all);
+int					mouse_hook_j(int button, int y, int x, t_all *all);
+int					j_slide(int null, double x, int y, t_all *all);
+
 int					key_hook_ship(int keycode, t_all *all);
 int					key_hook_tricorne(int keycode, t_all *all);
 void				ft_pixel_put_to_image(t_all *all);
@@ -88,11 +98,14 @@ void				draw_tricorne(t_all *all);
 void				draw_julia(t_all *all);
 void				draw_ship(t_all *all);
 void				clear_image(t_all *all);
+
 void				init_tricorne(t_all *all);
 void				init_mandelbrot(t_all *all);
 void				init_julia(t_all *all);
 void				init_ship(t_all *all);
 void				init_mlx(t_all *all);
+
+double				toFractal(t_all *all, int a);
 void				draw_cross(t_all *all, int x, int y, int color);
 
 #endif

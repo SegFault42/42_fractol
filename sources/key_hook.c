@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:05:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/02 11:46:55 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/02 19:49:29 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,32 @@ void	draw_cross(t_all *all, int x, int y, int color)
 	}
 }
 
-int		mouse_hook_m(int button, t_all *all)
+int		mouse_hook_m(int button, int x, int y, t_all *all)
 {
-	if (button == SCROLL_UP)
+	static double x_reel = 0;
+	static double y_reel = 0;
+	if (y > 0)
 	{
-		all->zoom *= 1.1;
-		draw_mandelbrot(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+		if (button == SCROLL_UP)
+		{
+			x_reel = toFractal(all, x) + all->x1;
+			y_reel = toFractal(all, y) + all->y1;
+			all->zoom *= 1.1;
+			all->x1 = x_reel - toFractal(all, x);
+			all->y1 = y_reel - toFractal(all, y);
+			draw_mandelbrot(all);
+		}
+		if (button == SCROLL_DOWN)
+		{
+			x_reel = toFractal(all, x) + all->x1;
+			y_reel = toFractal(all, y) + all->y1;
+			all->zoom /= 1.1;
+			all->x1 = x_reel - toFractal(all, x);
+			all->y1 = y_reel - toFractal(all, y);
+			draw_mandelbrot(all);
+		}
 	}
-	if (button == SCROLL_DOWN)
-	{
-		all->zoom /= 1.1;
-		draw_mandelbrot(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
+	(void)x;
 	return (0);
 }
 
@@ -101,297 +113,24 @@ int		mouse_hook_j(int button, int x, int y, t_all *all)
 	{
 		if (button == SCROLL_UP)
 		{
-			clear_image(all);
 			x_reel = toFractal(all, x) + all->x1;
 			y_reel = toFractal(all, y) + all->y1;
 			all->zoom *= 1.1;
-			all->x1 = x_reel - toFractal(all, 500) / 2;
-			all->y1 = y_reel - toFractal(all, 500) / 2;
-			/*all->x1 /= 1.165;*/
-			/*all->y1 /= 1.13;*/
+			all->x1 = x_reel - toFractal(all, x);
+			all->y1 = y_reel - toFractal(all, y);
 			draw_julia(all);
-			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr,
-					all->img_ptr, 0, 0);
 		}
 		if (button == SCROLL_DOWN)
 		{
-			clear_image(all);
 			x_reel = toFractal(all, x) + all->x1;
 			y_reel = toFractal(all, y) + all->y1;
 			all->zoom /= 1.1;
-			all->x1 = x_reel - toFractal(all, 500) / 2;
-			all->y1 = y_reel - toFractal(all, 500) / 2;
+			all->x1 = x_reel - toFractal(all, x);
+			all->y1 = y_reel - toFractal(all, y);
 			draw_julia(all);
-			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr,
-					all->img_ptr, 0, 0);
 		}
 	}
 	(void)x;
-	return (0);
-}
-
-int		key_hook_m2(int keycode, t_all *all)
-{
-	if (keycode == KEY_EQUAL)
-	{
-		clear_image(all);
-		all->zoom *= 1.1;
-		draw_mandelbrot(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr,
-				all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_MIN)
-	{
-		clear_image(all);
-		all->zoom /= 1.1;
-		draw_mandelbrot(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr,
-				all->img_ptr, 0, 0);
-	}
-	return (0);
-}
-
-int		key_hook_m(int keycode, t_all *all)
-{
-	static double speed = 0.1;
-
-	if (keycode == KEY_1)
-		speed = 0.0001;
-	if (keycode == KEY_2)
-		speed = 0.05;
-	if (keycode == KEY_3)
-		speed = 0.1;
-	if (keycode == KEY_EQUAL)
-	{
-		clear_image(all);
-		all->zoom *= 1.1;
-		draw_mandelbrot(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_MIN)
-	{
-		clear_image(all);
-		all->zoom /= 1.1;
-		draw_mandelbrot(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_P)
-	{
-		clear_image(all);
-		all->max += 10;
-		draw_mandelbrot(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-		printf("Iteration + = %f\n", all->max);
-	}
-	if (keycode == KEY_O && all->max >= 2)
-	{
-		clear_image(all);
-		all->max -= 10;
-		draw_mandelbrot(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-		printf("Iteration - = %f\n", all->max);
-	}
-	if (keycode == KEY_RIGHT)
-	{
-		clear_image(all);
-		all->x1 -= speed;
-		draw_mandelbrot(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_LEFT)
-	{
-		clear_image(all);
-		all->x1 += speed;
-		draw_mandelbrot(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_UP)
-	{
-		clear_image(all);
-		all->y1 += speed;
-		draw_mandelbrot(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_DOWN)
-	{
-		clear_image(all);
-		all->y1 -= speed;
-		draw_mandelbrot(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_ESC)
-	{
-		mlx_destroy_image(all->mlx_ptr, all->img_ptr);
-		mlx_destroy_window(all->mlx_ptr, all->win_ptr);
-		exit(EXIT_SUCCESS);
-	}
-	if (keycode == KEY_R)
-	{
-		clear_image(all);
-		all->r2++;
-		draw_mandelbrot(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_G)
-	{
-		clear_image(all);
-		all->g2++;
-		draw_mandelbrot(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_B)
-	{
-		clear_image(all);
-		all->b2++;
-		draw_mandelbrot(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_E)
-	{
-		clear_image(all);
-		all->r2--;
-		draw_mandelbrot(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_F)
-	{
-		clear_image(all);
-		all->g2--;
-		draw_mandelbrot(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_V)
-	{
-		clear_image(all);
-		all->b2--;
-		draw_mandelbrot(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	return (0);
-}
-
-int		key_hook_j(int keycode, t_all *all)
-{
-	static double	speed = 0.1;
-	static int		bool = 0;
-
-		printf("%d\n", bool);
-	if (keycode == KEY_F1)
-		bool = 0;
-	if (keycode == KEY_F2)
-		bool = 1;
-	if (bool)
-		mlx_hook(all->win_ptr, 6, 1L << 6, j_slide, (void *)all);
-	if (keycode == KEY_1)
-		speed = 0.01;
-	if (keycode == KEY_2)
-		speed = 0.05;
-	if (keycode == KEY_3)
-		speed = 0.1;
-	if (keycode == KEY_EQUAL)
-	{
-		clear_image(all);
-		all->zoom *= 1.1;
-		draw_julia(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_MIN)
-	{
-		clear_image(all);
-		all->zoom /= 1.1;
-		draw_julia(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_P)
-	{
-		clear_image(all);
-		all->max += 10;
-		draw_julia(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_O && all->max >= 2)
-	{
-		clear_image(all);
-		all->max -= 10;
-		draw_julia(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_RIGHT)
-	{
-		clear_image(all);
-		all->x1 -= speed;
-		draw_julia(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_LEFT)
-	{
-		clear_image(all);
-		all->x1 += speed;
-		draw_julia(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_UP)
-	{
-		clear_image(all);
-		all->y1 += speed;
-		draw_julia(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_DOWN)
-	{
-		clear_image(all);
-		all->y1 -= speed;
-		draw_julia(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_ESC)
-	{
-		mlx_destroy_image(all->mlx_ptr, all->img_ptr);
-		mlx_destroy_window(all->mlx_ptr, all->win_ptr);
-		exit(EXIT_SUCCESS);
-	}
-	if (keycode == KEY_R)
-	{
-		clear_image(all);
-		all->r2++;
-		draw_julia(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_G)
-	{
-		clear_image(all);
-		all->g2++;
-		draw_julia(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_B)
-	{
-		clear_image(all);
-		all->b2++;
-		draw_julia(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_E)
-	{
-		clear_image(all);
-		all->r2--;
-		draw_julia(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_F)
-	{
-		clear_image(all);
-		all->g2--;
-		draw_julia(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
-	if (keycode == KEY_V)
-	{
-		clear_image(all);
-		all->b2--;
-		draw_julia(all);
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-	}
 	return (0);
 }
 
