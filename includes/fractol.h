@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/02 21:15:52 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/03 00:16:01 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,18 +67,20 @@ typedef struct		s_all
 	unsigned char	r2;
 	unsigned char	g2;
 	unsigned char	b2;
+	int				check_fractal;
 }					t_all;
 
 void				call_fractal_1(char **argv, t_all *all);
 void				call_fractal_2(char **argv, t_all *all);
 double				modulus(double a, double b);
 int					check_arguments(void);
+int					check_fractal(int keycode, t_all *all);
 
-int					key_hook_mandelbrot_1(int keycode, t_all *all);
-int					key_hook_mandelbrot_2(int keycode, t_all *all);
-int					key_hook_mandelbrot_3(int keycode, t_all *all);
-int					key_hook_mandelbrot_4(int keycode, t_all *all, void(*ft)(t_all *));
-int					key_hook_mandelbrot_5(int keycode, t_all *all);
+int					key_hook_fractal_1(int keycode, t_all *all, void(*ft)(t_all *));
+int					key_hook_fractal_2(int keycode, t_all *all, void(*ft)(t_all *));
+int					key_hook_fractal_3(int keycode, t_all *all, void(*ft)(t_all *));
+int					key_hook_fractal_4(int keycode, t_all *all, void(*ft)(t_all *));
+int					key_hook_fractal_5(int keycode, t_all *all, void(*ft)(t_all *));
 int					mouse_hook_m(int button, int y, int x, t_all *all);
 
 int					key_hook_julia_1(int keycode, t_all *all);
