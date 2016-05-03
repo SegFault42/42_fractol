@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:04:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/03 00:54:29 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/03 13:15:41 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	call_fractal_2(char **argv, t_all *all)
 		init_ship(all);
 		draw_ship(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-		mlx_hook(all->win_ptr, 2, 3, key_hook_ship, (void *)all);
+		mlx_hook(all->win_ptr, 2, 3, check_fractal, (void *)all);
 	}
 	else if (ft_strcmp(argv[1], "-tricorne") == 0)
 	{
@@ -52,7 +52,7 @@ void	call_fractal_2(char **argv, t_all *all)
 		init_tricorne(all);
 		draw_tricorne(all);
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
-		mlx_hook(all->win_ptr, 2, 3, key_hook_tricorne, (void *)all);
+		mlx_hook(all->win_ptr, 2, 3, check_fractal, (void *)all);
 	}
 }
 
