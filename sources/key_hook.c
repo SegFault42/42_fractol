@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:05:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/03 21:25:00 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/03 23:56:40 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int		j_slide(int null, double x, int y, t_all *all)
 	if (all->event.button_distorsion_julia % 2 != 0)
 		if (x > 0 && x <= W && y > 0 && y <= H)
 		{
-			clear_image(all);
+			/*clear_image(all);*/
 			if (x < W / 2 && y < H / 2)
 				all->c_r += 0.02;
 			else if (x > W / 2 && y < H / 2)
@@ -124,6 +124,8 @@ int		j_slide(int null, double x, int y, t_all *all)
 		}
 	if (all->event.button_cross % 2 != 0)
 		draw_cross(all, 0, 0, WHITE);
+	else
+		draw_julia(all);
 	(void)null;
 	return (0);
 }

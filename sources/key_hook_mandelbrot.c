@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:15:54 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/03 20:49:47 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/04 00:43:34 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,22 +55,18 @@ int		key_hook_fractal_3(int keycode, t_all *all, void (*function)(t_all*))
 	if (keycode == KEY_RIGHT)
 	{
 		all->x1 -= 1.1;
-		function(all);
 	}
 	if (keycode == KEY_LEFT)
 	{
 		all->x1 += 1.1;
-		function(all);
 	}
 	if (keycode == KEY_UP)
 	{
 		all->y1 += 1.1;
-		function(all);
 	}
 	if (keycode == KEY_DOWN)
 	{
 		all->y1 -= 1.1;
-		function(all);
 	}
 	key_hook_fractal_4(keycode, all, function);
 	return (0);
