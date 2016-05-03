@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:15:54 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/03 00:39:25 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/03 20:49:47 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,8 @@ int		key_hook_fractal_1(int keycode, t_all *all, void (*function)(t_all*))
 	return (0);
 }
 
-int		key_hook_fractal_2(int keycode, t_all *all, void(*function)(t_all*))
+int		key_hook_fractal_2(int keycode, t_all *all, void (*function)(t_all*))
 {
-	if (keycode == KEY_EQUAL)
-	{
-		all->zoom *= 1.1;
-		function(all);
-	}
-	if (keycode == KEY_MIN)
-	{
-		all->zoom /= 1.1;
-		function(all);
-	}
 	if (keycode == KEY_P)
 	{
 		all->max += 10;
@@ -60,7 +50,7 @@ int		key_hook_fractal_2(int keycode, t_all *all, void(*function)(t_all*))
 	return (0);
 }
 
-int		key_hook_fractal_3(int keycode, t_all *all, void(*function)(t_all*))
+int		key_hook_fractal_3(int keycode, t_all *all, void (*function)(t_all*))
 {
 	if (keycode == KEY_RIGHT)
 	{
@@ -86,7 +76,7 @@ int		key_hook_fractal_3(int keycode, t_all *all, void(*function)(t_all*))
 	return (0);
 }
 
-int		key_hook_fractal_4(int keycode, t_all *all, void(*function)(t_all*))
+int		key_hook_fractal_4(int keycode, t_all *all, void (*function)(t_all*))
 {
 	if (keycode == KEY_R)
 	{
@@ -108,6 +98,7 @@ int		key_hook_fractal_4(int keycode, t_all *all, void(*function)(t_all*))
 		all->r2--;
 		function(all);
 	}
+	key_hook_julia(keycode, all);
 	return (0);
 }
 
@@ -123,4 +114,3 @@ int		check_fractal(int keycode, t_all *all)
 		key_hook_fractal_1(keycode, all, &draw_tricorne);
 	return (0);
 }
-

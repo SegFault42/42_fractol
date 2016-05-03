@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 09:15:20 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/02 15:02:46 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/03 20:11:20 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	init_julia(t_all *all)
 	all->c_r = -0.70;
 	all->c_i = 0.27015;
 	all->temp_x = all->x;
+	init_event(all);
 }
 
 void	init_mandelbrot(t_all *all)
