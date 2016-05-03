@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/03 20:48:16 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/03 21:42:19 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef struct		s_event
 {
 	int				button_distorsion_julia;
 	int				button_cross;
+	double			x_reel;
+	double			y_reel;
 }					t_event;
 
 typedef struct		s_all
@@ -112,5 +114,5 @@ void				init_ship(t_all *all);
 void				init_mlx(t_all *all);
 
 void				draw_cross(t_all *all, int x, int y, int color);
-double					toFractal(t_all *all, int a);
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:05:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/03 21:01:35 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/03 21:25:00 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,26 +52,24 @@ void	draw_cross(t_all *all, int x, int y, int color)
 
 int		mouse_hook_m(int button, int x, int y, t_all *all)
 {
-	double x_reel = 0;
-	double y_reel = 0;
 	if (y > 0)
 	{
 		if (button == SCROLL_UP)
 		{
-			x_reel = (x / all->zoom) + all->x1;
-			y_reel = (y / all->zoom) + all->y1;
+			all->event.x_reel = (x / all->zoom) + all->x1;
+			all->event.y_reel = (y / all->zoom) + all->y1;
 			all->zoom *= 1.1;
-			all->x1 = x_reel - (x / all->zoom);
-			all->y1 = y_reel - (y / all->zoom);
+			all->x1 = all->event.x_reel - (x / all->zoom);
+			all->y1 = all->event.y_reel - (y / all->zoom);
 			draw_mandelbrot(all);
 		}
 		if (button == SCROLL_DOWN)
 		{
-			x_reel = (x / all->zoom) + all->x1;
-			y_reel = (y / all->zoom) + all->y1;
+			all->event.x_reel = (x / all->zoom) + all->x1;
+			all->event.y_reel = (y / all->zoom) + all->y1;
 			all->zoom /= 1.1;
-			all->x1 = x_reel - (x / all->zoom);
-			all->y1 = y_reel - (y / all->zoom);
+			all->x1 = all->event.x_reel - (x / all->zoom);
+			all->y1 = all->event.y_reel - (y / all->zoom);
 			draw_mandelbrot(all);
 		}
 	}
@@ -81,26 +79,24 @@ int		mouse_hook_m(int button, int x, int y, t_all *all)
 
 int		mouse_hook_j(int button, int x, int y, t_all *all)
 {
-	double x_reel = 0;
-	double y_reel = 0;
 	if (y > 0)
 	{
 		if (button == SCROLL_UP)
 		{
-			x_reel = (x / all->zoom) + all->x1;
-			y_reel = (y / all->zoom) + all->y1;
+			all->event.x_reel = (x / all->zoom) + all->x1;
+			all->event.y_reel = (y / all->zoom) + all->y1;
 			all->zoom *= 1.1;
-			all->x1 = x_reel - (x / all->zoom);
-			all->y1 = y_reel - (y / all->zoom);
+			all->x1 = all->event.x_reel - (x / all->zoom);
+			all->y1 = all->event.y_reel - (y / all->zoom);
 			draw_julia(all);
 		}
 		if (button == SCROLL_DOWN)
 		{
-			x_reel = (x / all->zoom) + all->x1;
-			y_reel = (y / all->zoom) + all->y1;
+			all->event.x_reel = (x / all->zoom) + all->x1;
+			all->event.y_reel = (y / all->zoom) + all->y1;
 			all->zoom /= 1.1;
-			all->x1 = x_reel - (x / all->zoom);
-			all->y1 = y_reel - (y / all->zoom);
+			all->x1 = all->event.x_reel - (x / all->zoom);
+			all->y1 = all->event.y_reel - (y / all->zoom);
 			draw_julia(all);
 		}
 	}
@@ -123,15 +119,11 @@ int		j_slide(int null, double x, int y, t_all *all)
 			else if (x > W / 2 && y > H / 2)
 				all->c_i -= 0.02;
 			draw_julia(all);
-			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+			mlx_put_image_to_window(all->mlx_ptr, all->win_ptr,
+					all->img_ptr, 0, 0);
 		}
 	if (all->event.button_cross % 2 != 0)
 		draw_cross(all, 0, 0, WHITE);
 	(void)null;
 	return (0);
-}
-
-double	toFractal(t_all *all, int a)
-{
-	return a/all->zoom;
 }
