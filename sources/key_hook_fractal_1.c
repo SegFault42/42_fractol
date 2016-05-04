@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 17:13:49 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/04 17:13:50 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/04 18:16:14 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,3 @@ int		check_fractal(int keycode, t_all *all)
 		key_hook_fractal_1(keycode, all, &draw_tricorne);
 	return (0);
 }
-

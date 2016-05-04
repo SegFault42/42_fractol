@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/04 17:25:50 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/04 18:20:33 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ void				color_fractal(t_all *all);
 void				loop_mandelbrot(t_all *all);
 void				loop_julia(t_all *all);
 void				loop_ship(t_all *all);
+void				loop_tricorne(t_all *all);
 /*
 ** key_hook.c
 */
