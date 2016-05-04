@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/16 10:57:38 by rabougue          #+#    #+#             */
-/*   Updated: 2015/12/16 11:41:53 by rabougue         ###   ########.fr       */
+/*   Created: 2016/05/04 08:54:34 by rabougue          #+#    #+#             */
+/*   Updated: 2016/05/04 09:00:13 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "./includes/libft.h"
 
-t_list *ft_lstmap(t_list *lst, t_list * (*f)(t_list *elem))
+double	ft_sqrt(double a)
 {
-	t_list	*new;
-
-	ft_lstiter(lst, (*f));
-	if (!(new = (t_list *)malloc(sizeof(t_list))))
-		return (NULL);
-	
+	return (a * a);
 }

@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/28 21:15:53 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/04 01:13:28 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/04 08:59:43 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@ void	draw_mandelbrot(t_all *all)
 {
 	clear_image(all);
 	all->x = 0;
-	all->image_x = W;
-	all->image_y = H;
-	while (all->x < all->image_x)
+	while (all->x < W)
 	{
 		all->y = 0;
-		while (all->y < all->image_y)
+		while (all->y < H)
 		{
 			all->c_r = all->x / all->zoom + all->x1;
 			all->c_i = all->y / all->zoom + all->y1;
@@ -32,15 +30,14 @@ void	draw_mandelbrot(t_all *all)
 					< all->max)
 			{
 				all->tmp = all->z_r;
-				all->z_r = (all->z_r * all->z_r) - (all->z_i * all->z_i)
-			+ all->c_r;
+				all->z_r = (ft_sqrt(all->z_r)) - ft_sqrt(all->z_i) + all->c_r;
 				all->z_i = 2 * all->z_i * all->tmp + all->c_i;
 				all->i++;
-				all->b = all->i + all->b2;
+				all->b = all->i * all->b2;
 				all->r = all->i * all->r2;
 				all->g = all->i * all->g2;
 				all->img_color = mlx_get_color_value(all->mlx_ptr,
-						all->b + all->r * all->g);
+						all->b + all->r + all->g);
 				ft_pixel_put_to_image_colors(all);
 			}
 			all->y++;
