@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 09:15:20 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/03 21:42:21 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/04 10:58:17 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,6 @@ void	init_ship(t_all *all)
 	all->y2 = 1.2;
 	all->zoom = 200;
 	all->max = 50;
-	all->r2 = 0;
-	all->g2 = 0;
-	all->b2 = 0;
 }
 
 void	init_tricorne(t_all *all)

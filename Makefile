@@ -6,7 +6,7 @@
 #    By: rabougue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/10 19:16:51 by rabougue          #+#    #+#              #
-#    Updated: 2016/05/04 10:36:53 by rabougue         ###   ########.fr        #
+#    Updated: 2016/05/04 11:04:21 by rabougue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,9 +38,9 @@ $(NAME): $(OBJS)
 	@printf " [$(GREEN)Success$(GREY)]\n"
 	@printf "Compiling mlx.a ..."
 	@make -s -C ./minilibx_macos/
-	@printf " [$(GREEN)Success$(GREY)]\n"
+	@printf "   [$(GREEN)Success$(GREY)]\n"
 	@printf "Compiling .o ..."
-	@printf " [$(GREEN)Success$(GREY)]\n"
+	@printf "      [$(GREEN)Success$(GREY)]\n"
 	@printf "Compiling Fractol ..."
 	@gcc $(FLAG) -o $(NAME) $(OBJS) $(LMLX) $(LFT) $(FRAMEWORK)
 	@printf " [$(GREEN)Success$(GREY)]\n$(END)"
