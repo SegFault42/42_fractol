@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_hook_mandelbrot.c                              :+:      :+:    :+:   */
+/*   key_hook_fractal_1.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/02 18:15:54 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/04 16:06:16 by rabougue         ###   ########.fr       */
+/*   Created: 2016/05/04 17:13:49 by rabougue          #+#    #+#             */
+/*   Updated: 2016/05/04 17:13:50 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,15 @@ int		key_hook_fractal_1(int keycode, t_all *all, void (*function)(t_all*))
 	return (0);
 }
 
+int		key_hook_julia(int keycode, t_all *all)
+{
+	if (keycode == KEY_SPACE)
+		all->event.button_distorsion_julia++;
+	if (keycode == KEY_F1)
+		all->event.button_cross++;
+	return (0);
+}
+
 int		key_hook_fractal_2(int keycode, t_all *all, void (*function)(t_all*))
 {
 	if (keycode == KEY_F)
@@ -65,11 +74,3 @@ int		check_fractal(int keycode, t_all *all)
 	return (0);
 }
 
-int		key_hook_julia(int keycode, t_all *all)
-{
-	if (keycode == KEY_SPACE)
-		all->event.button_distorsion_julia++;
-	if (keycode == KEY_F1)
-		all->event.button_cross++;
-	return (0);
-}

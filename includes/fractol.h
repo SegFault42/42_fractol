@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/04 17:07:12 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/04 17:25:50 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@
 
 # define W			600
 # define H			600
-
 
 typedef struct		s_event
 {
@@ -72,7 +71,6 @@ typedef struct		s_all
 	unsigned char	b;
 	double			temp_x;
 	double			temp_y;
-
 	unsigned char	r2;
 	unsigned char	g2;
 	unsigned char	b2;
@@ -80,7 +78,6 @@ typedef struct		s_all
 	t_event			event;
 	void			(*zoom_tab[4])(struct s_all *);
 }					t_all;
-
 /*
 ** error.c
 */
@@ -129,15 +126,17 @@ int					mouse_hook_tricorne(int button, int y, int x, t_all *all);
 ** key_hook_fractal_1.c
 */
 int					key_hook_fractal_1(int key, t_all *all, void(*ft)(t_all *));
-int					key_hook_fractal_2(int key, t_all *all, void(*ft)(t_all *));
 int					key_hook_julia(int keycode, t_all *all);
+int					key_hook_fractal_2(int key, t_all *all, void(*ft)(t_all *));
 int					check_fractal(int keycode, t_all *all);
 /*
 ** main.c
 */
 void				call_fractal_1(char **argv, t_all *all);
 void				call_fractal_2(char **argv, t_all *all);
-
+/*
+** print_point.c.c
+*/
 void				ft_pixel_put_to_image(t_all *all);
 void				ft_pixel_put_to_image_colors(t_all *all);
 
