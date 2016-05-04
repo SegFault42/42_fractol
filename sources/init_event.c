@@ -6,11 +6,19 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 20:06:09 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/04 13:12:34 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/04 16:58:49 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
+
+void	init_zoom_tab(t_all *all)
+{
+	all->zoom_tab[0] = &draw_mandelbrot;
+	all->zoom_tab[1] = &draw_julia;
+	all->zoom_tab[2] = &draw_ship;
+	all->zoom_tab[3] = &draw_tricorne;
+}
 
 void	init_event(t_all *all)
 {

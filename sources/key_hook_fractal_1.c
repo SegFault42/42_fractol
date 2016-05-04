@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:15:54 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/04 13:50:23 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/04 16:06:16 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ int		key_hook_fractal_2(int keycode, t_all *all, void (*function)(t_all*))
 
 int		check_fractal(int keycode, t_all *all)
 {
-	if (all->check_fractal == 1)
+	if (all->check_fractal == 0)
 		key_hook_fractal_1(keycode, all, &draw_mandelbrot);
-	else if (all->check_fractal == 2)
+	else if (all->check_fractal == 1)
 		key_hook_fractal_1(keycode, all, &draw_julia);
-	else if (all->check_fractal == 3)
+	else if (all->check_fractal == 2)
 		key_hook_fractal_1(keycode, all, &draw_ship);
-	else if (all->check_fractal == 4)
+	else if (all->check_fractal == 3)
 		key_hook_fractal_1(keycode, all, &draw_tricorne);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/04 13:50:11 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/04 17:07:12 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 
 # define W			600
 # define H			600
+
 
 typedef struct		s_event
 {
@@ -77,6 +78,7 @@ typedef struct		s_all
 	unsigned char	b2;
 	int				check_fractal;
 	t_event			event;
+	void			(*zoom_tab[4])(struct s_all *);
 }					t_all;
 
 /*
@@ -101,6 +103,7 @@ void				init_tricorne(t_all *all);
 /*
 ** init_event.c
 */
+void				init_zoom_tab(t_all *all);
 void				init_event(t_all *all);
 void				color_fractal(t_all *all);
 /*
@@ -114,20 +117,24 @@ void				loop_ship(t_all *all);
 */
 void				clear_image(t_all *all);
 void				draw_cross(t_all *all, int x, int y, int color);
-int					mouse_hook_m(int button, int y, int x, t_all *all);
-int					mouse_hook_j(int button, int y, int x, t_all *all);
 int					j_slide(int null, double x, int y, t_all *all);
 /*
-** key_hook_julia.c
+** mouse_hook.c
 */
+int					mouse_hook_zoom(int button, int y, int x, t_all *all);
+int					mouse_hook_j(int button, int y, int x, t_all *all);
+int					mouse_hook_ship(int button, int y, int x, t_all *all);
+int					mouse_hook_tricorne(int button, int y, int x, t_all *all);
 /*
-** key_fractal_1.c
+** key_hook_fractal_1.c
 */
 int					key_hook_fractal_1(int key, t_all *all, void(*ft)(t_all *));
 int					key_hook_fractal_2(int key, t_all *all, void(*ft)(t_all *));
 int					key_hook_julia(int keycode, t_all *all);
 int					check_fractal(int keycode, t_all *all);
-
+/*
+** main.c
+*/
 void				call_fractal_1(char **argv, t_all *all);
 void				call_fractal_2(char **argv, t_all *all);
 

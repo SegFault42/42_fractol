@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:05:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/04 13:51:08 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/04 16:03:23 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,59 +48,6 @@ void	draw_cross(t_all *all, int x, int y, int color)
 		y++;
 		x = 0;
 	}
-}
-
-int		mouse_hook_m(int button, int x, int y, t_all *all)
-{
-	if (y > 0)
-	{
-		if (button == SCROLL_UP)
-		{
-			all->event.x_reel = (x / all->zoom) + all->x1;
-			all->event.y_reel = (y / all->zoom) + all->y1;
-			all->zoom *= 1.1;
-			all->x1 = all->event.x_reel - (x / all->zoom);
-			all->y1 = all->event.y_reel - (y / all->zoom);
-			draw_mandelbrot(all);
-		}
-		if (button == SCROLL_DOWN)
-		{
-			all->event.x_reel = (x / all->zoom) + all->x1;
-			all->event.y_reel = (y / all->zoom) + all->y1;
-			all->zoom /= 1.1;
-			all->x1 = all->event.x_reel - (x / all->zoom);
-			all->y1 = all->event.y_reel - (y / all->zoom);
-			draw_mandelbrot(all);
-		}
-	}
-	return (0);
-}
-
-int		mouse_hook_j(int button, int x, int y, t_all *all)
-{
-	if (y > 0)
-	{
-		if (button == SCROLL_UP)
-		{
-			all->event.x_reel = (x / all->zoom) + all->x1;
-			all->event.y_reel = (y / all->zoom) + all->y1;
-			all->zoom *= 1.1;
-			all->x1 = all->event.x_reel - (x / all->zoom);
-			all->y1 = all->event.y_reel - (y / all->zoom);
-			draw_julia(all);
-		}
-		if (button == SCROLL_DOWN)
-		{
-			all->event.x_reel = (x / all->zoom) + all->x1;
-			all->event.y_reel = (y / all->zoom) + all->y1;
-			all->zoom /= 1.1;
-			all->x1 = all->event.x_reel - (x / all->zoom);
-			all->y1 = all->event.y_reel - (y / all->zoom);
-			draw_julia(all);
-		}
-	}
-	(void)x;
-	return (0);
 }
 
 int		j_slide(int null, double x, int y, t_all *all)

@@ -6,7 +6,7 @@
 #    By: rabougue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/10 19:16:51 by rabougue          #+#    #+#              #
-#    Updated: 2016/05/04 13:54:12 by rabougue         ###   ########.fr        #
+#    Updated: 2016/05/04 16:43:14 by rabougue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ NAME = fractol
 FLAG = -Ofast -Wall -Werror -Wextra
 FRAMEWORK = -framework OpenGL -framework AppKit
 OBJS = ./main.o ./print_point.o ./key_hook.o ./error.o ./init.o ./fractal.o \
-		./key_hook_fractal_1.o ./init_event.o ./loop_fractal.o
+		./key_hook_fractal_1.o ./init_event.o ./loop_fractal.o ./mouse_hook.o
 
 LFT = -L./libft/ -lft
 LMLX = -L./minilibx_macos/ -lmlx
@@ -35,15 +35,15 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@printf "$(GREY)Compiling libft.a ...$(GREY)"
 	@make -s -C ./libft/
-	@printf " [$(GREEN)Success$(GREY)]\n"
+	@printf "           [$(GREEN)Success$(GREY)]\n"
 	@printf "Compiling mlx.a ..."
 	@make -s -C ./minilibx_macos/
-	@printf "   [$(GREEN)Success$(GREY)]\n"
+	@printf "             [$(GREEN)Success$(GREY)]\n"
 	@printf "Compiling .o ..."
-	@printf "      [$(GREEN)Success$(GREY)]\n"
+	@printf "                [$(GREEN)Success$(GREY)]\n"
 	@printf "Compiling Fractol ..."
 	@gcc $(FLAG) -o $(NAME) $(OBJS) $(LMLX) $(LFT) $(FRAMEWORK)
-	@printf " [$(GREEN)Success$(GREY)]\n$(END)"
+	@printf "           [$(GREEN)Success$(GREY)]\n$(END)"
 
 %.o : %.c 
 		@gcc -c $(FLAG) $< -o $@
