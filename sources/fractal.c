@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/28 21:15:53 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/04 11:07:38 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/04 12:16:08 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,13 @@ void	draw_mandelbrot(t_all *all)
 			all->z_r = 0;
 			all->z_i = 0;
 			all->i = 0;
-			while ((ft_sqrt(all->z_r)) + (ft_sqrt(all->z_i)) < 4 && all->i < all->max)
+			while ((sqrt(all->z_r)) + (sqrt(all->z_i)) < 4 && all->i < all->max)
 			{
 				all->tmp = all->z_r;
 				all->z_r = (ft_sqrt(all->z_r)) - ft_sqrt(all->z_i) + all->c_r;
 				all->z_i = 2 * all->z_i * all->tmp + all->c_i;
 				all->i++;
-				all->b = all->i * all->b2;
-				all->r = all->i * all->r2;
-				all->g = all->i * all->g2;
-				ft_pixel_put_to_image_colors(all);
+				color_fractal(all);
 			}
 			all->y++;
 		}
