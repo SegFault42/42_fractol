@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:15:54 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/04 00:59:17 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/04 13:50:23 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,14 @@ int		check_fractal(int keycode, t_all *all)
 		key_hook_fractal_1(keycode, all, &draw_ship);
 	else if (all->check_fractal == 4)
 		key_hook_fractal_1(keycode, all, &draw_tricorne);
+	return (0);
+}
+
+int		key_hook_julia(int keycode, t_all *all)
+{
+	if (keycode == KEY_SPACE)
+		all->event.button_distorsion_julia++;
+	if (keycode == KEY_F1)
+		all->event.button_cross++;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:05:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/04 12:11:49 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/04 13:51:08 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ int		mouse_hook_m(int button, int x, int y, t_all *all)
 			draw_mandelbrot(all);
 		}
 	}
-	(void)x;
 	return (0);
 }
 

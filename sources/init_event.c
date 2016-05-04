@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 20:06:09 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/04 12:12:23 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/04 13:12:34 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,4 @@ void	color_fractal(t_all *all)
 		ft_pixel_put_to_image_colors(all);
 	}
 }
+

@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/04 12:02:56 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/04 13:50:11 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,32 +79,53 @@ typedef struct		s_all
 	t_event			event;
 }					t_all;
 
+/*
+** error.c
+*/
 int					check_arguments(void);
-
+/*
+** fractal.c
+*/
 void				draw_mandelbrot(t_all *all);
 void				draw_julia(t_all *all);
 void				draw_ship(t_all *all);
 void				draw_tricorne(t_all *all);
-
+/*
+** init.c
+*/
 void				init_mlx(t_all *all);
 void				init_julia(t_all *all);
 void				init_mandelbrot(t_all *all);
 void				init_ship(t_all *all);
 void				init_tricorne(t_all *all);
-
+/*
+** init_event.c
+*/
 void				init_event(t_all *all);
 void				color_fractal(t_all *all);
-
+/*
+** loop_mandelbrot.c
+*/
+void				loop_mandelbrot(t_all *all);
+void				loop_julia(t_all *all);
+void				loop_ship(t_all *all);
+/*
+** key_hook.c
+*/
 void				clear_image(t_all *all);
 void				draw_cross(t_all *all, int x, int y, int color);
 int					mouse_hook_m(int button, int y, int x, t_all *all);
 int					mouse_hook_j(int button, int y, int x, t_all *all);
 int					j_slide(int null, double x, int y, t_all *all);
-
-int					key_hook_julia(int keycode, t_all *all);
-
+/*
+** key_hook_julia.c
+*/
+/*
+** key_fractal_1.c
+*/
 int					key_hook_fractal_1(int key, t_all *all, void(*ft)(t_all *));
 int					key_hook_fractal_2(int key, t_all *all, void(*ft)(t_all *));
+int					key_hook_julia(int keycode, t_all *all);
 int					check_fractal(int keycode, t_all *all);
 
 void				call_fractal_1(char **argv, t_all *all);
