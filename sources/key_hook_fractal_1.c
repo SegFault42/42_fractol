@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 17:13:49 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/04 18:16:14 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/05 00:04:48 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 int		key_hook_fractal_1(int keycode, t_all *all, void (*function)(t_all*))
 {
+	printf("zoom = %f, x1 = %f, y1 = %f, all->max = %f\n", all->zoom, all->x1, all->y1, all->max);
+	printf("r2 = %u, g2 = %u, b2 = %u\n", all->r2, all->g2, all->b2);
 	if (keycode == KEY_P)
-		all->max += 5;
-	else if (keycode == KEY_O && all->max >= 2)
-		all->max -= 5;
+		all->max += 20;
+	else if (keycode == KEY_O && all->max > 10)
+		all->max -= 20;
 	else if (keycode == KEY_RIGHT)
 		all->x1 -= 1.1;
 	else if (keycode == KEY_LEFT)

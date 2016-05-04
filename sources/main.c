@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:04:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/04 18:12:59 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/04 23:38:36 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	call_fractal_1(char **argv, t_all *all)
 		mlx_hook(all->win_ptr, 2, 3, check_fractal, (void *)all);
 		mlx_hook(all->win_ptr, 6, 1L << 6, j_slide, (void *)all);
 	}
-	call_fractal_2(argv, all);
+	else
+		call_fractal_2(argv, all);
 }
 
 void	call_fractal_2(char **argv, t_all *all)
@@ -57,6 +58,8 @@ void	call_fractal_2(char **argv, t_all *all)
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 		mlx_hook(all->win_ptr, 2, 3, check_fractal, (void *)all);
 	}
+	else
+		check_arguments();
 }
 
 int		main(int argc, char **argv)

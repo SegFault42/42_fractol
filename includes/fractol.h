@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/04 18:20:33 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/04 22:10:59 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 # define DARK_GREY	0x3b3b3b
 # define YLW		0xFFFF00
 
-# define W			600
-# define H			600
+# define W			800
+# define H			800
 
 typedef struct		s_event
 {
@@ -104,12 +104,13 @@ void				init_zoom_tab(t_all *all);
 void				init_event(t_all *all);
 void				color_fractal(t_all *all);
 /*
-** loop_mandelbrot.c
+** loop_fractal.c
 */
 void				loop_mandelbrot(t_all *all);
 void				loop_julia(t_all *all);
 void				loop_ship(t_all *all);
 void				loop_tricorne(t_all *all);
+void				loop_bird_of_pray(t_all *all);
 /*
 ** key_hook.c
 */

@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/28 21:15:53 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/04 18:19:50 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/04 18:44:03 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	draw_ship(t_all *all)
 			all->z_r = 0;
 			all->z_i = 0;
 			all->i = 0;
-			loop_ship(all);
+			loop_bird_of_pray(all);
 			all->y++;
 		}
 		all->x++;
