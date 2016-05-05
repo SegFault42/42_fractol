@@ -6,7 +6,7 @@
 #    By: rabougue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/10 19:16:51 by rabougue          #+#    #+#              #
-#    Updated: 2016/05/05 21:46:09 by rabougue         ###   ########.fr        #
+#    Updated: 2016/05/05 23:08:35 by rabougue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,9 @@ END = \033[0m
 NAME = fractol
 FLAG = -Wall -Werror -Wextra
 FRAMEWORK = -Ofast -framework OpenGL -framework AppKit
-OBJS = ./main.o ./print_point.o ./key_hook.o ./error.o ./init_1.o ./fractal.o \
-		./key_hook_fractal_1.o ./init_event.o ./loop_fractal.o ./mouse_hook.o \
-		./init_2.o
+OBJS = ./main.o ./print_point.o ./key_hook.o ./error.o ./init_fractal_1.o \
+	./fractal.o ./key_hook_fractal_1.o ./init_event.o ./loop_fractal.o \
+	./mouse_hook.o ./init_fractal_2.o
 
 INCLUDE = $(wildcard ./includes/fractol.h ./includes/keyboard.h)
 

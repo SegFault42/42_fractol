@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 17:13:49 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/05 18:44:02 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 00:26:28 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,7 @@ int		check_fractal(int keycode, t_all *all)
 		key_hook_fractal_1(keycode, all, &draw_bird);
 	else if (all->check_fractal == 5)
 		key_hook_fractal_1(keycode, all, &draw_space);
+	else if (all->check_fractal == 6)
+		key_hook_fractal_1(keycode, all, &draw_buffalo);
 	return (0);
 }

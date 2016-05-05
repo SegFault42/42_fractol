@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 09:15:20 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/05 21:40:48 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 01:21:55 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,32 +38,32 @@ void	init_mandelbrot(t_all *all)
 void	init_julia(t_all *all)
 {
 	init_mlx(all);
-	all->x1 = -2.5;
+	all->x1 = -0.201164;
 	all->x2 = 2;
-	all->y1 = -2.5;
+	all->y1 = -0.785149;
 	all->y2 = 2;
-	all->zoom = 150;
-	all->max = 10;
-	all->c_r = -0.70;
-	all->c_i = 0.27015;
-	all->r2 = 249;
-	all->g2 = 246;
-	all->b2 = 10;
+	all->zoom = 758.170543;
+	all->max = 70;
+	all->c_r = -0.72000;
+	all->c_i = 0.290150;
+	all->r2 = 1;
+	all->g2 = 3;
+	all->b2 = 16;
 	init_event(all);
 }
 
 void	init_ship(t_all *all)
 {
 	init_mlx(all);
-	all->x1 = -2.1;
+	all->x1 = -1.867652;
 	all->x2 = 0.6;
-	all->y1 = -1.2;
+	all->y1 = -0.011895;
 	all->y2 = 1.2;
-	all->zoom = 200;
-	all->max = 50;
-	all->r2 = 1;
-	all->g2 = 50;
-	all->b2 = 50;
+	all->zoom = 73684.556769;
+	all->max = 30;
+	all->r2 = 0;
+	all->g2 = 15;
+	all->b2 = 10;
 }
 
 void	init_tricorne(t_all *all)

@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:05:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/05 19:12:12 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 00:02:24 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,5 @@ int		save_stat(t_all *all)
 		system("afplay /System/Library/Sounds/Hero.aiff&");
 		ft_putendl("Save ok");
 	}
-	
 	return (0);
 }

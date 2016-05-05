@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:04:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/05 21:38:23 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 00:30:03 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,14 @@ void	call_fractal_3(char **argv, t_all *all)
 		all->check_fractal = 5;
 		init_space(all);
 		draw_space(all);
+		mlx_mouse_hook(all->win_ptr, mouse_hook_zoom, (void *)all);
+		mlx_hook(all->win_ptr, 2, 3, check_fractal, (void *)all);
+	}
+	else if (ft_strcmp(argv[1], "-buffalo") == 0)
+	{
+		all->check_fractal = 6;
+		init_buffalo(all);
+		draw_buffalo(all);
 		mlx_mouse_hook(all->win_ptr, mouse_hook_zoom, (void *)all);
 		mlx_hook(all->win_ptr, 2, 3, check_fractal, (void *)all);
 	}

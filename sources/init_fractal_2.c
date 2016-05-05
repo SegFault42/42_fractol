@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/05 21:40:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/05 21:41:01 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 00:24:42 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,18 @@ void	init_space(t_all *all)
 	all->g2 = 216;
 	all->b2 = 175;
 	init_event(all);
+}
+
+void	init_buffalo(t_all *all)
+{
+	init_mlx(all);
+	all->x1 = -2.1;
+	all->x2 = 0.6;
+	all->y1 = -1.2;
+	all->y2 = 1.2;
+	all->zoom = 200;
+	all->max = 50;
+	all->r2 = 1;
+	all->g2 = 50;
+	all->b2 = 50;
 }

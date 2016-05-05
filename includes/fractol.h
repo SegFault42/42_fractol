@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/05 20:37:29 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 00:30:00 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 # define DARK_GREY	0x3b3b3b
 # define YLW		0xFFFF00
 
-# define W			600
-# define H			600
+# define W			1000
+# define H			1000
 
 typedef struct		s_event
 {
@@ -77,7 +77,7 @@ typedef struct		s_all
 	unsigned char	b2;
 	int				check_fractal;
 	t_event			event;
-	void			(*zoom_tab[6])(struct s_all *);
+	void			(*zoom_tab[7])(struct s_all *);
 }					t_all;
 /*
 ** error.c
@@ -92,6 +92,7 @@ void				draw_ship(t_all *all);
 void				draw_tricorne(t_all *all);
 void				draw_bird(t_all *all);
 void				draw_space(t_all *all);
+void				draw_buffalo(t_all *all);
 /*
 ** init.c
 */
@@ -102,6 +103,7 @@ void				init_ship(t_all *all);
 void				init_tricorne(t_all *all);
 void				init_bird(t_all *all);
 void				init_space(t_all *all);
+void				init_buffalo(t_all *all);
 /*
 ** init_event.c
 */
@@ -116,6 +118,7 @@ void				loop_julia(t_all *all);
 void				loop_ship(t_all *all);
 void				loop_tricorne(t_all *all);
 void				loop_bird_of_pray(t_all *all);
+void				loop_buffalo(t_all *all);
 /*
 ** key_hook.c
 */
@@ -148,8 +151,6 @@ void				call_fractal_3(char **argv, t_all *all);
 */
 void				ft_pixel_put_to_image(t_all *all);
 void				ft_pixel_put_to_image_colors(t_all *all);
-
-
-
+void				menu(t_all *all);
 
 #endif
