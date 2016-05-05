@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 09:15:20 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/05 00:38:14 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/05 16:40:04 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,18 @@ void	init_tricorne(t_all *all)
 	all->y2 = 1.2;
 	all->zoom = 200;
 	all->max = 50;
+}
+
+void	init_bird(t_all *all)
+{
+	init_mlx(all);
+	all->x1 = -2.1;
+	all->x2 = 0.6;
+	all->y1 = -1.2;
+	all->y2 = 1.2;
+	all->zoom = 200;
+	all->max = 50;
+	all->r2 = 1;
+	all->g2 = 50;
+	all->b2 = 50;
 }

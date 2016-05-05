@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 17:13:49 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/05 09:50:12 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/05 16:45:19 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ int		key_hook_fractal_2(int keycode, t_all *all, void (*function)(t_all*))
 		all->b2--;
 	else if (keycode == KEY_ESC)
 		exit(EXIT_SUCCESS);
+	else if (keycode == KEY_F12)
+		save_stat(all);
 	function(all);
 	return (0);
 }
@@ -73,5 +75,7 @@ int		check_fractal(int keycode, t_all *all)
 		key_hook_fractal_1(keycode, all, &draw_ship);
 	else if (all->check_fractal == 3)
 		key_hook_fractal_1(keycode, all, &draw_tricorne);
+	else if (all->check_fractal == 4)
+		key_hook_fractal_1(keycode, all, &draw_bird);
 	return (0);
 }

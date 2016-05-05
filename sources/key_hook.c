@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:05:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/04 16:03:23 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/05 13:45:19 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,19 @@ int		j_slide(int null, double x, int y, t_all *all)
 	else
 		draw_julia(all);
 	(void)null;
+	return (0);
+}
+
+int		save_stat(t_all *all)
+{
+	all->event.fd = open("./save/save_fractal.sav", O_RDONLY | O_CREAT);
+	if (all->event.fd == -1)
+		perror("");
+	else
+	{
+		system("afplay /System/Library/Sounds/Hero.aiff&");
+		ft_putendl("Save ok");
+	}
+	
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 20:06:09 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/04 18:48:30 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/05 16:46:54 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	init_zoom_tab(t_all *all)
 	all->zoom_tab[1] = &draw_julia;
 	all->zoom_tab[2] = &draw_ship;
 	all->zoom_tab[3] = &draw_tricorne;
+	all->zoom_tab[4] = &draw_bird;
 }
 
 void	init_event(t_all *all)

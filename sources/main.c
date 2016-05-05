@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:04:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/04 23:38:36 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/05 16:41:58 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,21 @@ void	call_fractal_2(char **argv, t_all *all)
 		mlx_hook(all->win_ptr, 2, 3, check_fractal, (void *)all);
 	}
 	else
+		call_fractal_3(argv, all);
+}
+
+void	call_fractal_3(char **argv, t_all *all)
+{
+	if (ft_strcmp(argv[1], "-bird_of_prey") == 0)
+	{
+		all->check_fractal = 4;
+		init_bird(all);
+		draw_bird(all);
+		mlx_mouse_hook(all->win_ptr, mouse_hook_zoom, (void *)all);
+		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+		mlx_hook(all->win_ptr, 2, 3, check_fractal, (void *)all);
+	}
+	else
 		check_arguments();
 }
 
@@ -66,6 +81,11 @@ int		main(int argc, char **argv)
 {
 	t_all	all;
 
+	if (W != 800 || H != 800)
+	{
+		ft_putendl("Size window error. Set as 800 x 800 please.");
+		exit(EXIT_FAILURE);
+	}
 	if (argc != 2)
 		check_arguments();
 	call_fractal_1(argv, &all);

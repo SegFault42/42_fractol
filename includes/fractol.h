@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/05 09:47:40 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/05 16:44:42 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 # define DARK_GREY	0x3b3b3b
 # define YLW		0xFFFF00
 
-# define W			400
-# define H			400
+# define W			800
+# define H			800
 
 typedef struct		s_event
 {
@@ -38,6 +38,7 @@ typedef struct		s_event
 	int				button_cross;
 	double			x_reel;
 	double			y_reel;
+	int				fd;
 }					t_event;
 
 typedef struct		s_all
@@ -76,7 +77,7 @@ typedef struct		s_all
 	unsigned char	b2;
 	int				check_fractal;
 	t_event			event;
-	void			(*zoom_tab[4])(struct s_all *);
+	void			(*zoom_tab[5])(struct s_all *);
 }					t_all;
 /*
 ** error.c
@@ -89,6 +90,7 @@ void				draw_mandelbrot(t_all *all);
 void				draw_julia(t_all *all);
 void				draw_ship(t_all *all);
 void				draw_tricorne(t_all *all);
+void				draw_bird(t_all *all);
 /*
 ** init.c
 */
@@ -117,6 +119,7 @@ void				loop_bird_of_pray(t_all *all);
 void				clear_image(t_all *all);
 void				draw_cross(t_all *all, int x, int y, int color);
 int					j_slide(int null, double x, int y, t_all *all);
+int					save_stat(t_all *all);
 /*
 ** mouse_hook.c
 */
@@ -136,10 +139,14 @@ int					check_fractal(int keycode, t_all *all);
 */
 void				call_fractal_1(char **argv, t_all *all);
 void				call_fractal_2(char **argv, t_all *all);
+void				call_fractal_3(char **argv, t_all *all);
 /*
 ** print_point.c.c
 */
 void				ft_pixel_put_to_image(t_all *all);
 void				ft_pixel_put_to_image_colors(t_all *all);
 
+
+
+void	init_bird(t_all *all);
 #endif
