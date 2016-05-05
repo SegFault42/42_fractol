@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/05 16:44:42 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/05 18:52:10 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ typedef struct		s_all
 	unsigned char	b2;
 	int				check_fractal;
 	t_event			event;
-	void			(*zoom_tab[5])(struct s_all *);
+	void			(*zoom_tab[6])(struct s_all *);
 }					t_all;
 /*
 ** error.c
@@ -91,6 +91,7 @@ void				draw_julia(t_all *all);
 void				draw_ship(t_all *all);
 void				draw_tricorne(t_all *all);
 void				draw_bird(t_all *all);
+void				draw_space(t_all *all);
 /*
 ** init.c
 */
@@ -99,6 +100,8 @@ void				init_julia(t_all *all);
 void				init_mandelbrot(t_all *all);
 void				init_ship(t_all *all);
 void				init_tricorne(t_all *all);
+void				init_bird(t_all *all);
+void				init_space(t_all *all);
 /*
 ** init_event.c
 */
@@ -148,5 +151,5 @@ void				ft_pixel_put_to_image_colors(t_all *all);
 
 
 
-void	init_bird(t_all *all);
+
 #endif

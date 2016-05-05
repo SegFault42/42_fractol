@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 09:15:20 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/05 16:40:04 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/05 18:15:46 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ void	init_julia(t_all *all)
 	all->max = 10;
 	all->c_r = -0.70;
 	all->c_i = 0.27015;
-	all->r2 = 100;
-	all->g2 = 200;
-	all->b2 = 150;
+	all->r2 = 249;
+	all->g2 = 246;
+	all->b2 = 10;
 	init_event(all);
 }
 
@@ -90,4 +90,21 @@ void	init_bird(t_all *all)
 	all->r2 = 1;
 	all->g2 = 50;
 	all->b2 = 50;
+}
+
+void	init_space(t_all *all)
+{
+	init_mlx(all);
+	all->x1 = 0.044690;
+	all->x2 = 2;
+	all->y1 = 0.4980;
+	all->y2 = 2;
+	all->zoom = 150;
+	all->max = 80;
+	all->c_r = -0.922300;
+	all->c_i = 0.143250;
+	all->r2 = 225;
+	all->g2 = 216;
+	all->b2 = 175;
+	init_event(all);
 }
