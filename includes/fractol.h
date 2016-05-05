@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/05 18:52:10 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/05 20:37:29 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 # define DARK_GREY	0x3b3b3b
 # define YLW		0xFFFF00
 
-# define W			800
-# define H			800
+# define W			600
+# define H			600
 
 typedef struct		s_event
 {

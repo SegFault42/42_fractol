@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 09:15:20 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/05 18:15:46 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/05 20:29:33 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	init_mlx(t_all *all)
 	all->data = mlx_get_data_addr(all->img_ptr, &all->bpp,
 		&all->sizeline, &all->endian);
 	all->win_ptr = mlx_new_window(all->mlx_ptr, W, H, "Fractol");
-	all->img_color = mlx_get_color_value(all->mlx_ptr, WHITE);
+	/*all->img_color = mlx_get_color_value(all->mlx_ptr, WHITE);*/
 }
 
 void	init_mandelbrot(t_all *all)

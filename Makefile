@@ -6,7 +6,7 @@
 #    By: rabougue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/10 19:16:51 by rabougue          #+#    #+#              #
-#    Updated: 2016/05/05 14:12:23 by rabougue         ###   ########.fr        #
+#    Updated: 2016/05/05 19:37:08 by rabougue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ BLUE = \033[48;5;21m
 YELLOW = \033[48;5;226m
 GREEN = \033[38;5;10m
 GREY = \033[38;5;242m
+CYAN = \033[38;5;87m
 END = \033[0m
 
 NAME = fractol
@@ -35,31 +36,31 @@ VPATH = sources/
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@printf "$(GREY)Compiling libft.a ...$(GREY)"
+	@printf "$(CYAN)Compiling libft.a ...$(CYAN)"
 	@make -s -C ./libft/
-	@printf "           [$(GREEN)Success$(GREY)]\n"
+	@printf "           [$(GREEN)Success$(CYAN)]\n"
 	@printf "Compiling mlx.a ..."
 	@make -s -C ./minilibx_macos/
-	@printf "             [$(GREEN)Success$(GREY)]\n"
+	@printf "             [$(GREEN)Success$(CYAN)]\n"
 	@printf "Compiling .o ..."
-	@printf "                [$(GREEN)Success$(GREY)]\n"
+	@printf "                [$(GREEN)Success$(CYAN)]\n"
 	@printf "Compiling Fractol ..."
 	@gcc $(FLAG) -o $(NAME) $(OBJS) $(LMLX) $(LFT) $(FRAMEWORK)
-	@printf "           [$(GREEN)Success$(GREY)]\n$(END)"
+	@printf "           [$(GREEN)Success$(CYAN)]\n$(END)"
 
 %.o : %.c ${INCLUDE}
 		@gcc -c $(FLAG) $< -o $@
 
 clean:
-	@printf "$(GREY)deleting all .o ..."
+	@printf "$(CYAN)deleting all .o ..."
 	@rm -f $(OBJS)
-	@printf " [$(GREEN)Success$(GREY)]\n$(END)"
+	@printf " [$(GREEN)Success$(CYAN)]\n$(END)"
 
 fclean:
-	@printf "$(GREY)Deleting libft.a and all .o ..."
+	@printf "$(CYAN)Deleting libft.a and all .o ..."
 	@rm -f $(NAME) $(OBJS)
 	@make -s fclean -C ./libft/
 	@make -s clean -C ./minilibx_macos/
-	@printf " [$(GREEN)Success$(GREY)]\n$(END)"
+	@printf " [$(GREEN)Success$(CYAN)]\n$(END)"
 
 re: fclean all
