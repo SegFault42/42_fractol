@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 20:06:09 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/05 21:26:09 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/05 21:29:32 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,21 @@ void	init_event(t_all *all)
 }
 
 /*
-** Le premier if sert a definir la couleur a l'interieur de Mandelbrot.
-** Le else sert a definir la couleur de la forme. (Les valeurs a modifier sont
-** dans le fichier init.c)
+** Les variables b, g, r servent a definir la couleur a l'interieur de
+** Mandelbrot.
+** Les variables all->b, all->g, all->r servent a definir la couleur
+** de la forme. (Les valeurs a modifier sont dans le fichier init.c)
 */
 
 void	color_fractal(t_all *all)
 {
-	if (all->i == all->max)
-	{
-		all->b = 1;
-		all->r = 1;
-		all->g = 1;
-		ft_pixel_put_to_image_colors(all);
-	}
-	else
-	{
-		all->b = all->i * all->b2;
-		all->r = all->i * all->r2;
-		all->g = all->i * all->g2;
-		all->img_color = mlx_get_color_value(all->mlx_ptr, all->b + all->r
-				+ all->g);
-		ft_pixel_put_to_image_colors(all);
-	}
+	all->b = 1;
+	all->r = 1;
+	all->g = 1;
+	all->b = all->i * all->b2;
+	all->r = all->i * all->r2;
+	all->g = all->i * all->g2;
+	all->img_color = mlx_get_color_value(all->mlx_ptr, all->b + all->r
+			+ all->g);
+	ft_pixel_put_to_image_colors(all);
 }

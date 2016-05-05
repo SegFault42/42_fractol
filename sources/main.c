@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:04:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/05 20:56:47 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/05 21:38:23 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,6 @@ int		main(int argc, char **argv)
 {
 	t_all	all;
 
-	/*if (W != 800 || H != 800)*/
-	/*{*/
-		/*ft_putendl("Size window error. Set as 800 x 800 please.");*/
-		/*exit(EXIT_FAILURE);*/
-	/*}*/
 	if (argc != 2)
 		check_arguments();
 	call_fractal_1(argv, &all);
