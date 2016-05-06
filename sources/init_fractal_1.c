@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 09:15:20 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/06 01:21:55 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 13:57:16 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,11 @@ void	init_mlx(t_all *all)
 
 void	init_mandelbrot(t_all *all)
 {
-	init_mlx(all);
-	all->x1 = -1.264379;
+	all->x1 = -1.499424;
 	all->x2 = 0.6;
-	all->y1 = 0.373096;
+	all->y1 = -0.019518;
 	all->y2 = 1.2;
-	all->zoom = 45752.312482;
+	all->zoom = 14578.096738;
 	all->max = 90;
 	all->r2 = 249;
 	all->g2 = 246;
@@ -37,42 +36,42 @@ void	init_mandelbrot(t_all *all)
 
 void	init_julia(t_all *all)
 {
-	init_mlx(all);
-	all->x1 = -0.201164;
+	all->x1 = -0.991979;
 	all->x2 = 2;
-	all->y1 = -0.785149;
+	all->y1 = -1.167183;
 	all->y2 = 2;
-	all->zoom = 758.170543;
-	all->max = 70;
-	all->c_r = -0.72000;
-	all->c_i = 0.290150;
-	all->r2 = 1;
-	all->g2 = 3;
-	all->b2 = 16;
+	all->zoom = 265.734150;
+	all->max = 50;
+	all->c_r = -0.7;
+	all->c_i = 0.350150;
+	all->r2 = 15;
+	all->g2 = 5;
+	all->b2 = 5;
 	init_event(all);
 }
 
 void	init_ship(t_all *all)
 {
-	init_mlx(all);
-	all->x1 = -1.867652;
+	all->x1 = -1.810057;
 	all->x2 = 0.6;
-	all->y1 = -0.011895;
+	all->y1 = -0.087011;
 	all->y2 = 1.2;
-	all->zoom = 73684.556769;
+	all->zoom = 5620.487370;
 	all->max = 30;
 	all->r2 = 0;
-	all->g2 = 15;
-	all->b2 = 10;
+	all->g2 = 8;
+	all->b2 = 13;
 }
 
 void	init_tricorne(t_all *all)
 {
-	init_mlx(all);
-	all->x1 = -2.1;
+	all->x1 = 0.871653;
 	all->x2 = 0.6;
-	all->y1 = -1.2;
+	all->y1 = -1.509791;
 	all->y2 = 1.2;
-	all->zoom = 200;
-	all->max = 50;
+	all->zoom = 20395995.138994;
+	all->max = 190;
+	all->r2 = 1;
+	all->g2 = 1;
+	all->b2 = 20;
 }

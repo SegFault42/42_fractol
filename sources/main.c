@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:04:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/06 00:30:03 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 12:21:50 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	call_fractal_1(char **argv, t_all *all)
 {
+	init_mlx(all);
 	init_zoom_tab(all);
 	if (ft_strcmp(argv[1], "-mandelbrot") == 0)
 	{

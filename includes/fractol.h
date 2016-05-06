@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/06 00:30:00 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 13:02:29 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
+# include <pthread.h>
 # include "../minilibx_macos/mlx.h"
 # include "../libft/includes/libft.h"
 # include "./keyboard.h"
@@ -29,8 +30,8 @@
 # define DARK_GREY	0x3b3b3b
 # define YLW		0xFFFF00
 
-# define W			1000
-# define H			1000
+# define W			600
+# define H			600
 
 typedef struct		s_event
 {
@@ -140,6 +141,7 @@ int					key_hook_fractal_1(int key, t_all *all, void(*ft)(t_all *));
 int					key_hook_julia(int keycode, t_all *all);
 int					key_hook_fractal_2(int key, t_all *all, void(*ft)(t_all *));
 int					check_fractal(int keycode, t_all *all);
+int					check_fractal_init(t_all *all);
 /*
 ** main.c
 */
@@ -153,4 +155,6 @@ void				ft_pixel_put_to_image(t_all *all);
 void				ft_pixel_put_to_image_colors(t_all *all);
 void				menu(t_all *all);
 
+
+int				pthread_test(t_all *all);
 #endif

@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 17:13:49 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/06 00:26:28 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 13:04:08 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		key_hook_fractal_1(int keycode, t_all *all, void (*function)(t_all*))
 {
 	printf("zoom = %f, x1 = %f, y1 = %f, all->max = %f\n", all->zoom, all->x1, all->y1, all->max);
 	printf("r2 = %u, g2 = %u, b2 = %u\n", all->r2, all->g2, all->b2);
-	printf("c_r = %f, c_i = %f\n", all->c_r, all->c_i);
+	printf("c_r = %f, c_i = %f\n\n", all->c_r, all->c_i);
 	if (keycode == KEY_P)
 		all->max += 20;
 	else if (keycode == KEY_O && all->max > 10)
@@ -60,16 +60,47 @@ int		key_hook_fractal_2(int keycode, t_all *all, void (*function)(t_all*))
 		all->b2--;
 	else if (keycode == KEY_ESC)
 		exit(EXIT_SUCCESS);
-	else if (keycode == KEY_F12)
-		save_stat(all);
+	else if (keycode == KEY_1)
+	{
+		all->r2 = 2;
+		all->g2 = 2;
+		all->b2 = 2;
+	}
+	else if (keycode == KEY_2)
+	{
+		all->r2 = 0;
+		all->g2 = 248;
+		all->b2 = 248;
+	}
+	else if (keycode == KEY_0)
+		check_fractal_init(all);
 	function(all);
+	return (0);
+}
+
+int		check_fractal_init(t_all *all)
+{
+	if (all->check_fractal == 0)
+		init_mandelbrot(all);
+	else if (all->check_fractal == 1)
+		init_julia(all);
+	else if (all->check_fractal == 2)
+		init_ship(all);
+	else if (all->check_fractal == 3)
+		init_tricorne(all);
+	else if (all->check_fractal == 4)
+		init_bird(all);
+	else if (all->check_fractal == 5)
+		init_space(all);
+	else if (all->check_fractal == 6)
+		init_buffalo(all);
 	return (0);
 }
 
 int		check_fractal(int keycode, t_all *all)
 {
 	if (all->check_fractal == 0)
-		key_hook_fractal_1(keycode, all, &draw_mandelbrot);
+		key_hook_fractal_1(keycode, all, draw_mandelbrot);
 	else if (all->check_fractal == 1)
 		key_hook_fractal_1(keycode, all, &draw_julia);
 	else if (all->check_fractal == 2)
