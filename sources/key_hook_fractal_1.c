@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 17:13:49 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/06 14:55:31 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 16:22:19 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ int		key_hook_fractal_2(int keycode, t_all *all, void (*function)(t_all*))
 		all->g2--;
 	else if (keycode == KEY_V)
 		all->b2--;
-	/*else if (keycode == KEY_EQUAL)*/
-		/*all->o += 20;*/
 	else if (keycode == KEY_1)
 	{
 		all->r2 = 2;

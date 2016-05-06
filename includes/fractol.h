@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/06 14:13:13 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 16:49:38 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,12 @@
 # include "../libft/includes/libft.h"
 # include "./keyboard.h"
 
-# define RED		0xFF0000
 # define GREEN		0x00FF00
-# define BLUE		0x0000FF
 # define WHITE		0xFFFFFF
-# define BLK		0x000000
-# define PURPLE		0x993299
-# define DARK_GREY	0x3b3b3b
-# define YLW		0xFFFF00
-
 # define W			600
 # define H			600
+#define MLX all->mlx_ptr
+#define WIN all->win_ptr
 
 typedef struct		s_event
 {
@@ -145,11 +140,12 @@ int					key_hook_fractal_2(int key, t_all *all, void(*ft)(t_all *));
 int					check_fractal(int keycode, t_all *all);
 int					check_fractal_init(t_all *all);
 /*
-** main.c
+** call_fractal.c
 */
 void				call_fractal_1(char **argv, t_all *all);
 void				call_fractal_2(char **argv, t_all *all);
 void				call_fractal_3(char **argv, t_all *all);
+void				call_fractal_4(char **argv, t_all *all);
 /*
 ** print_point.c.c
 */
