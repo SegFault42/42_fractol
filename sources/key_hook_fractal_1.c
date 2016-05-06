@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 17:13:49 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/06 19:19:36 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 20:37:21 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,6 @@ int		key_hook_fractal_1(int keycode, t_all *all, void (*function)(t_all*))
 	return (0);
 }
 
-void	move(t_all *all, double x, double y)
-{
-	all->x1 += (x / all->zoom);
-	all->y1 += (y / all->zoom);
-}
 int		key_hook_julia(int keycode, t_all *all)
 {
 	if (keycode == KEY_SPACE)
@@ -72,6 +67,10 @@ int		key_hook_fractal_2(int keycode, t_all *all, void (*function)(t_all*))
 		check_fractal_init(all);
 	else if (keycode == KEY_ESC)
 		exit(EXIT_SUCCESS);
+	else if (keycode == KEY_M)
+		system("afplay sound/Sound.mp3&");
+	else if (keycode == KEY_N)
+		(system("killall afplay"));
 	function(all);
 	key_hook_fractal_3(keycode, all, function);
 	return (0);

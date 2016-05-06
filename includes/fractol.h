@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/06 19:15:05 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 21:39:03 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,6 @@ void				call_fractal_4(char **argv, t_all *all);
 */
 void				ft_pixel_put_to_image(t_all *all);
 void				ft_pixel_put_to_image_colors(t_all *all);
-void				menu(t_all *all);
 void				move(t_all *all, double x, double y);
 
 #endif

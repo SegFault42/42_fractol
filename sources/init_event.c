@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 20:06:09 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/06 14:25:37 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 21:42:30 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,10 @@ void	color_fractal(t_all *all)
 	all->img_color = mlx_get_color_value(all->mlx_ptr, all->b + all->r
 			+ all->g);
 	ft_pixel_put_to_image_colors(all);
+}
+
+void	move(t_all *all, double x, double y)
+{
+	all->x1 += (x / all->zoom);
+	all->y1 += (y / all->zoom);
 }
