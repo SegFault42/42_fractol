@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/06 13:02:29 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 14:13:13 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,13 @@ typedef struct		s_all
 	unsigned char	r;
 	unsigned char	g;
 	unsigned char	b;
+	unsigned char	o;
 	double			temp_x;
 	double			temp_y;
 	unsigned char	r2;
 	unsigned char	g2;
 	unsigned char	b2;
+	unsigned char	o2;
 	int				check_fractal;
 	t_event			event;
 	void			(*zoom_tab[7])(struct s_all *);

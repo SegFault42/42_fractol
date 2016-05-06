@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/05 21:40:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/06 00:24:42 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 14:02:36 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	init_bird(t_all *all)
 {
-	init_mlx(all);
 	all->x1 = -2.1;
 	all->x2 = 0.6;
 	all->y1 = -1.2;
@@ -28,7 +27,6 @@ void	init_bird(t_all *all)
 
 void	init_space(t_all *all)
 {
-	init_mlx(all);
 	all->x1 = 0.044690;
 	all->x2 = 2;
 	all->y1 = 0.4980;
@@ -40,12 +38,10 @@ void	init_space(t_all *all)
 	all->r2 = 225;
 	all->g2 = 216;
 	all->b2 = 175;
-	init_event(all);
 }
 
 void	init_buffalo(t_all *all)
 {
-	init_mlx(all);
 	all->x1 = -2.1;
 	all->x2 = 0.6;
 	all->y1 = -1.2;

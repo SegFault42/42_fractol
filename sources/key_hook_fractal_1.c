@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 17:13:49 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/06 13:04:08 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 14:55:31 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,14 @@ int		key_hook_julia(int keycode, t_all *all)
 
 int		key_hook_fractal_2(int keycode, t_all *all, void (*function)(t_all*))
 {
+	(keycode == KEY_EQUAL) ? all->o -= 20 : (keycode == KEY_MIN) ? all->o += 20
+		: all->o == all->o;
 	if (keycode == KEY_F)
 		all->g2--;
 	else if (keycode == KEY_V)
 		all->b2--;
-	else if (keycode == KEY_ESC)
-		exit(EXIT_SUCCESS);
+	/*else if (keycode == KEY_EQUAL)*/
+		/*all->o += 20;*/
 	else if (keycode == KEY_1)
 	{
 		all->r2 = 2;
@@ -74,6 +76,8 @@ int		key_hook_fractal_2(int keycode, t_all *all, void (*function)(t_all*))
 	}
 	else if (keycode == KEY_0)
 		check_fractal_init(all);
+	else if (keycode == KEY_ESC)
+		exit(EXIT_SUCCESS);
 	function(all);
 	return (0);
 }

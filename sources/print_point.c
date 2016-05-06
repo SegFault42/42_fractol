@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/13 20:41:05 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/05 23:38:04 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 14:27:02 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_pixel_put_to_image(t_all *all)
 		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 2] = all->b;
 		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 1] = all->g;
 		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 0] = all->r;
-		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 3] = 0x00;
+		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 3] = all->o;
 	}
 }
 
@@ -40,14 +40,14 @@ void	ft_pixel_put_to_image_colors(t_all *all)
 		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 2] = all->r;
 		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 1] = all->g;
 		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 0] = all->b;
-		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 3] = 0x00;
+		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 3] = all->o;
 	}
 	else
 	{
 		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 2] = all->b;
 		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 1] = all->g;
 		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 0] = all->r;
-		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 3] = 0x00;
+		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 3] = all->o;
 	}
 }
 
