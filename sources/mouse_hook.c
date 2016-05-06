@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 13:42:38 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/06 21:19:22 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 23:28:26 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int		mouse_hook_zoom(int button, int x, int y, t_all *all)
 			all->y1 = all->event.y_reel - (y / all->zoom);
 			all->zoom_tab[all->check_fractal](all);
 		}
-		printf("x1 = %f, y1, %f\n", all->x1, all->y1);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 13:10:33 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/06 11:43:44 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/07 01:06:42 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,13 @@ void	loop_bird_of_pray(t_all *all)
 	}
 }
 
-void	loop_buffalo(t_all *all)
+void	loop_pylone(t_all *all)
 {
 	while ((ft_sqrt(all->z_r)) + (ft_sqrt(all->z_i)) < 4 && all->i < all->max)
 	{
 		all->tmp = all->z_r;
-		all->z_r = fabs(ft_sqrt(all->z_r) - ft_sqrt(all->z_i)) + all->c_r;
-		all->c_i = 2 * fabs(all->tmp * all->z_i) + all->c_i;
+		all->z_r = (ft_sqrt(all->z_r) - ft_sqrt(all->z_i) * 3) * fabs(all->z_r) + all->c_r;
+		all->z_i = -((ft_sqrt(all->tmp) * 3) - ft_sqrt(all->z_i)) * fabs(all->z_i) + all->c_i;
 		all->i++;
 		color_fractal(all);
 	}

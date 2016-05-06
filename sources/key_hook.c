@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/24 01:05:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/06 09:12:36 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 22:57:30 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int		j_slide(int null, double x, int y, t_all *all)
 					all->img_ptr, 0, 0);
 		}
 	if (all->event.button_cross % 2 != 0)
-		draw_cross(all, 0, 0, WHITE);
+		draw_cross(all, 0, 0, RED);
 	else
 		draw_julia(all);
 	(void)null;

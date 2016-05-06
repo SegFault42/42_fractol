@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/06 21:39:03 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/07 01:07:41 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,9 @@
 # include "../libft/includes/libft.h"
 # include "./keyboard.h"
 
-# define GREEN		0x00FF00
-# define WHITE		0xFFFFFF
+# define RED		0xFF0000
 # define W			600
 # define H			600
-# define MLX		all->mlx_ptr
-# define WIN		all->win_ptr
 
 typedef struct		s_event
 {
@@ -34,7 +31,6 @@ typedef struct		s_event
 	int				button_cross;
 	double			x_reel;
 	double			y_reel;
-	int				fd;
 }					t_event;
 
 typedef struct		s_all
@@ -50,9 +46,7 @@ typedef struct		s_all
 	int				x;
 	int				y;
 	double			x1;
-	double			x2;
 	double			y1;
-	double			y2;
 	double			zoom;
 	double			max;
 	double			image_x;
@@ -90,7 +84,7 @@ void				draw_ship(t_all *all);
 void				draw_tricorne(t_all *all);
 void				draw_bird(t_all *all);
 void				draw_space(t_all *all);
-void				draw_buffalo(t_all *all);
+void				draw_pylone(t_all *all);
 /*
 ** init.c
 */
@@ -101,7 +95,7 @@ void				init_ship(t_all *all);
 void				init_tricorne(t_all *all);
 void				init_bird(t_all *all);
 void				init_space(t_all *all);
-void				init_buffalo(t_all *all);
+void				init_pylone(t_all *all);
 /*
 ** init_event.c
 */
@@ -116,7 +110,7 @@ void				loop_julia(t_all *all);
 void				loop_ship(t_all *all);
 void				loop_tricorne(t_all *all);
 void				loop_bird_of_pray(t_all *all);
-void				loop_buffalo(t_all *all);
+void				loop_pylone(t_all *all);
 /*
 ** key_hook.c
 */

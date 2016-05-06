@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/06 18:37:43 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/06 18:38:06 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/07 01:11:22 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		check_fractal_init(t_all *all)
 	else if (all->check_fractal == 5)
 		init_space(all);
 	else if (all->check_fractal == 6)
-		init_buffalo(all);
+		init_pylone(all);
 	return (0);
 }
 
@@ -46,6 +46,6 @@ int		check_fractal(int keycode, t_all *all)
 	else if (all->check_fractal == 5)
 		key_hook_fractal_1(keycode, all, &draw_space);
 	else if (all->check_fractal == 6)
-		key_hook_fractal_1(keycode, all, &draw_buffalo);
+		key_hook_fractal_1(keycode, all, &draw_pylone);
 	return (0);
 }

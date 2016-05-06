@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/06 16:15:33 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/06 18:35:51 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/07 01:07:47 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	call_fractal_1(char **argv, t_all *all)
 {
-	init_mlx(all);
 	init_zoom_tab(all);
 	if (ft_strcmp(argv[1], "-mandelbrot") == 0)
 	{
+		init_mlx(all);
 		all->check_fractal = 0;
 		init_mandelbrot(all);
 		draw_mandelbrot(all);
@@ -26,6 +26,7 @@ void	call_fractal_1(char **argv, t_all *all)
 	}
 	else if (ft_strcmp(argv[1], "-julia") == 0)
 	{
+		init_mlx(all);
 		all->check_fractal = 1;
 		init_julia(all);
 		draw_julia(all);
@@ -41,6 +42,7 @@ void	call_fractal_2(char **argv, t_all *all)
 {
 	if (ft_strcmp(argv[1], "-burning_ship") == 0)
 	{
+		init_mlx(all);
 		all->check_fractal = 2;
 		init_ship(all);
 		draw_ship(all);
@@ -49,6 +51,7 @@ void	call_fractal_2(char **argv, t_all *all)
 	}
 	else if (ft_strcmp(argv[1], "-tricorne") == 0)
 	{
+		init_mlx(all);
 		all->check_fractal = 3;
 		init_tricorne(all);
 		draw_tricorne(all);
@@ -63,6 +66,7 @@ void	call_fractal_3(char **argv, t_all *all)
 {
 	if (ft_strcmp(argv[1], "-bird_of_prey") == 0)
 	{
+		init_mlx(all);
 		all->check_fractal = 4;
 		init_bird(all);
 		draw_bird(all);
@@ -71,6 +75,7 @@ void	call_fractal_3(char **argv, t_all *all)
 	}
 	else if (ft_strcmp(argv[1], "-space") == 0)
 	{
+		init_mlx(all);
 		all->check_fractal = 5;
 		init_space(all);
 		draw_space(all);
@@ -78,16 +83,17 @@ void	call_fractal_3(char **argv, t_all *all)
 		mlx_hook(all->win_ptr, 2, 3, check_fractal, (void *)all);
 	}
 	else
-		call_fractal_3(argv, all);
+		call_fractal_4(argv, all);
 }
 
 void	call_fractal_4(char **argv, t_all *all)
 {
 	if (ft_strcmp(argv[1], "-buffalo") == 0)
 	{
+		init_mlx(all);
 		all->check_fractal = 6;
-		init_buffalo(all);
-		draw_buffalo(all);
+		init_pylone(all);
+		draw_pylone(all);
 		mlx_mouse_hook(all->win_ptr, mouse_hook_zoom, (void *)all);
 		mlx_hook(all->win_ptr, 2, 3, check_fractal, (void *)all);
 	}
