@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/06 16:49:38 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 19:15:05 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 # define WHITE		0xFFFFFF
 # define W			600
 # define H			600
-#define MLX all->mlx_ptr
-#define WIN all->win_ptr
+# define MLX		all->mlx_ptr
+# define WIN		all->win_ptr
 
 typedef struct		s_event
 {
@@ -137,6 +137,7 @@ int					mouse_hook_tricorne(int button, int y, int x, t_all *all);
 int					key_hook_fractal_1(int key, t_all *all, void(*ft)(t_all *));
 int					key_hook_julia(int keycode, t_all *all);
 int					key_hook_fractal_2(int key, t_all *all, void(*ft)(t_all *));
+int					key_hook_fractal_3(int key, t_all *all, void(*ft)(t_all *));
 int					check_fractal(int keycode, t_all *all);
 int					check_fractal_init(t_all *all);
 /*
@@ -152,7 +153,6 @@ void				call_fractal_4(char **argv, t_all *all);
 void				ft_pixel_put_to_image(t_all *all);
 void				ft_pixel_put_to_image_colors(t_all *all);
 void				menu(t_all *all);
+void				move(t_all *all, double x, double y);
 
-
-int				pthread_test(t_all *all);
 #endif

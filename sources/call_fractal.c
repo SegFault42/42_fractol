@@ -6,14 +6,13 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/06 16:15:33 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/06 16:48:41 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/06 18:35:51 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
 void	call_fractal_1(char **argv, t_all *all)
-
 {
 	init_mlx(all);
 	init_zoom_tab(all);
