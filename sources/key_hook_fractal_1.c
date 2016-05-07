@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 17:13:49 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/07 17:07:35 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/07 19:01:34 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int		key_hook_fractal_2(int keycode, t_all *all, void (*function)(t_all*))
 	else if (keycode == KEY_M)
 		system("afplay sound/Sound.mp3&");
 	else if (keycode == KEY_N)
-		system("killall afplay");
+		system("killall afplay 2>/dev/null");
 	function(all);
 	key_hook_fractal_3(keycode, all, function);
 	return (0);
@@ -96,7 +96,7 @@ int		key_hook_fractal_3(int keycode, t_all *all, void (*function)(t_all*))
 		check_fractal_init(all);
 	else if (keycode == KEY_ESC)
 	{
-		system("killall afplay");
+		system("killall afplay 2>/dev/null");
 		mlx_destroy_window(all->mlx_ptr, all->win_ptr);
 		exit(EXIT_SUCCESS);
 	}
