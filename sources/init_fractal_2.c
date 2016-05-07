@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/05 21:40:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/07 01:10:01 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/07 13:31:38 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,27 @@ void	init_pylone(t_all *all)
 	all->y1 = -0.351878;
 	all->zoom = 918.994597;
 	all->max = 30;
-	all->r2 = 1;
-	all->g2 = 50;
-	all->b2 = 50;
+	all->r2 = 16;
+	all->g2 = 65;
+	all->b2 = 120;
 	all->o = 0;
 	all->c_r = 0.660000;
 	all->c_i = 0.930150;
+}
+
+void	init_serpienski(t_all *all)
+{
+	all->ax = 10;
+	all->ay = H - 10;
+	all->bx = W - 10;
+	all->by = H - 10;
+	all->cx = W / 2;
+	all->cy = 10;
+	all->x = all->ax;
+	all->y = all->ay;
+	all->r2 = 255;
+	all->g2 = 255;
+	all->b2 = 255;
+	all->i = 0;
+	all->max = 100000;
 }

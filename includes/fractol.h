@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/07 01:07:41 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/07 13:24:25 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,13 @@ typedef struct		s_all
 	unsigned char	o2;
 	int				check_fractal;
 	t_event			event;
-	void			(*zoom_tab[7])(struct s_all *);
+	void			(*zoom_tab[8])(struct s_all *);
+	double			ax;
+	double			ay;
+	double			bx;
+	double			by;
+	double			cx;
+	double			cy;
 }					t_all;
 /*
 ** error.c
@@ -147,5 +153,8 @@ void				call_fractal_4(char **argv, t_all *all);
 void				ft_pixel_put_to_image(t_all *all);
 void				ft_pixel_put_to_image_colors(t_all *all);
 void				move(t_all *all, double x, double y);
+void				draw_serpienski(t_all *all);
+void				init_serpienski(t_all *all);
+void				loop_serpienski(t_all *all);
 
 #endif

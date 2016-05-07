@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 20:06:09 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/07 01:10:31 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/07 12:45:53 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	init_zoom_tab(t_all *all)
 	all->zoom_tab[4] = &draw_bird;
 	all->zoom_tab[5] = &draw_space;
 	all->zoom_tab[6] = &draw_pylone;
+	all->zoom_tab[7] = &draw_pylone;
 }
 
 void	init_event(t_all *all)
@@ -48,7 +49,7 @@ void	color_fractal(t_all *all)
 	all->g = all->i * all->g2;
 	all->img_color = mlx_get_color_value(all->mlx_ptr, all->b + all->r
 			+ all->g);
-	ft_pixel_put_to_image_colors(all);
+	ft_pixel_put_to_image(all);
 }
 
 void	move(t_all *all, double x, double y)
