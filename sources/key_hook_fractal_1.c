@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 17:13:49 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/07 12:18:54 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/07 17:07:35 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 
 int		key_hook_fractal_1(int keycode, t_all *all, void (*function)(t_all*))
 {
-	printf("zoom = %f, x1 = %f, y1 = %f, all->max = %f\n",
-			all->zoom, all->x1, all->y1, all->max);
-	printf("r2 = %u, g2 = %u, b2 = %u\n", all->r2, all->g2, all->b2);
-	printf("c_r = %f, c_i = %f\n\n", all->c_r, all->c_i);
 	if (keycode == KEY_P)
 		all->max += 20;
 	else if (keycode == KEY_O && all->max > 10)
@@ -73,8 +69,6 @@ int		key_hook_fractal_2(int keycode, t_all *all, void (*function)(t_all*))
 		all->c_i += 0.01;
 	else if (keycode == KEY_0)
 		check_fractal_init(all);
-	else if (keycode == KEY_ESC)
-		exit(EXIT_SUCCESS);
 	else if (keycode == KEY_M)
 		system("afplay sound/Sound.mp3&");
 	else if (keycode == KEY_N)
@@ -103,6 +97,7 @@ int		key_hook_fractal_3(int keycode, t_all *all, void (*function)(t_all*))
 	else if (keycode == KEY_ESC)
 	{
 		system("killall afplay");
+		mlx_destroy_window(all->mlx_ptr, all->win_ptr);
 		exit(EXIT_SUCCESS);
 	}
 	function(all);

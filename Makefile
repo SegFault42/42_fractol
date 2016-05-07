@@ -6,7 +6,7 @@
 #    By: rabougue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/10 19:16:51 by rabougue          #+#    #+#              #
-#    Updated: 2016/05/06 18:46:21 by rabougue         ###   ########.fr        #
+#    Updated: 2016/05/07 17:03:23 by rabougue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ GREY = \033[38;5;60m
 END = \033[0m
 
 NAME = fractol
-FLAG = -D_REENTRANT -Wall -Werror -Wextra -Ofast
+FLAG = -Wall -Werror -Wextra -Ofast
 FRAMEWORK = -framework OpenGL -framework AppKit
 OBJS = ./main.o \
 	./print_point.o \
@@ -31,7 +31,8 @@ OBJS = ./main.o \
 	./draw_fractal_2.o \
 	./key_hook_fractal_1.o \
 	./init_event.o \
-	./loop_fractal.o \
+	./loop_fractal_1.o \
+	./loop_fractal_2.o \
 	./mouse_hook.o \
 	./init_fractal_2.o \
 	./call_fractal.o \

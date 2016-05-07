@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/06 16:15:33 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/07 11:59:03 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/07 16:55:56 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,12 @@ void	call_fractal_4(char **argv, t_all *all)
 		mlx_mouse_hook(all->win_ptr, mouse_hook_zoom, (void *)all);
 		mlx_hook(all->win_ptr, 2, 3, check_fractal, (void *)all);
 	}
-	else if (ft_strcmp(argv[1], "-serpienski") == 0)
+	else if (ft_strcmp(argv[1], "-celtic") == 0)
 	{
 		init_mlx(all);
 		all->check_fractal = 7;
-		init_serpienski(all);
-		draw_serpienski(all);
+		init_celtic(all);
+		draw_celtic(all);
 		mlx_mouse_hook(all->win_ptr, mouse_hook_zoom, (void *)all);
 		mlx_hook(all->win_ptr, 2, 3, check_fractal, (void *)all);
 	}

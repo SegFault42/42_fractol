@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/06 18:42:53 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/07 13:31:30 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/07 16:58:50 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,28 +55,24 @@ void	draw_pylone(t_all *all)
 	}
 }
 
-void	draw_serpienski(t_all *all)
+void	draw_celtic(t_all *all)
 {
 	clear_image(all);
-	while (all->i < all->max)
+	all->x = 0;
+	while (all->x < W)
 	{
-		if (abs(rand() % 3) == 0)
+		all->y = 0;
+		while (all->y < H)
 		{
-			all->x = (all->x + all->ax) / 2;
-			all->y = (all->y + all->ay) / 2;
+			all->c_r = all->x / all->zoom + all->x1;
+			all->c_i = all->y / all->zoom + all->y1;
+			all->z_r = 0;
+			all->z_i = 0;
+			all->i = 0;
+			loop_celtic(all);
+			all->y++;
 		}
-		else if (abs(rand() % 3) == 1)
-		{
-			all->x = (all->x + all->bx) / 2;
-			all->y = (all->y + all->by) / 2;
-		}
-		else if (abs(rand() % 3) == 2)
-		{
-			all->x = (all->x + all->cx) / 2;
-			all->y = (all->y + all->cy) / 2;
-		}
-		all->i++;
-		color_fractal(all);
+		all->x++;
 	}
-		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
+	mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->img_ptr, 0, 0);
 }

@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 12:52:14 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/07 13:24:25 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/07 16:54:32 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ typedef struct		s_all
 	double			y1;
 	double			zoom;
 	double			max;
-	double			image_x;
-	double			image_y;
 	double			c_r;
 	double			c_i;
 	double			z_r;
@@ -70,12 +68,6 @@ typedef struct		s_all
 	int				check_fractal;
 	t_event			event;
 	void			(*zoom_tab[8])(struct s_all *);
-	double			ax;
-	double			ay;
-	double			bx;
-	double			by;
-	double			cx;
-	double			cy;
 }					t_all;
 /*
 ** error.c
@@ -91,6 +83,7 @@ void				draw_tricorne(t_all *all);
 void				draw_bird(t_all *all);
 void				draw_space(t_all *all);
 void				draw_pylone(t_all *all);
+void				draw_celtic(t_all *all);
 /*
 ** init.c
 */
@@ -153,8 +146,7 @@ void				call_fractal_4(char **argv, t_all *all);
 void				ft_pixel_put_to_image(t_all *all);
 void				ft_pixel_put_to_image_colors(t_all *all);
 void				move(t_all *all, double x, double y);
-void				draw_serpienski(t_all *all);
-void				init_serpienski(t_all *all);
-void				loop_serpienski(t_all *all);
+void				loop_celtic(t_all *all);
+void				init_celtic(t_all *all);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/13 20:41:05 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/07 13:12:13 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/07 15:17:26 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_pixel_put_to_image(t_all *all)
 		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 2] = 255;
 		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 1] = 255;
 		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 0] = 255;
-		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 3] = all->o;
+		all->data[all->y * all->sizeline + all->x * all->bpp / 8 + 3] = 0x00;
 	}
 }
 

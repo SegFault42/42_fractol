@@ -6,7 +6,7 @@
 /*   By: rabougue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/05 21:40:06 by rabougue          #+#    #+#             */
-/*   Updated: 2016/05/07 13:31:38 by rabougue         ###   ########.fr       */
+/*   Updated: 2016/05/07 17:01:26 by rabougue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	init_bird(t_all *all)
 {
-	all->x1 = 0.557879;
-	all->y1 = -0.937647;
-	all->zoom = 73684.556769;
+	all->x1 = -1.669874;
+	all->y1 = -1.290668;
+	all->zoom = 181.81818;
 	all->max = 90;
-	all->r2 = 3;
-	all->g2 = 3;
+	all->r2 = 11;
+	all->g2 = 2;
 	all->b2 = 0;
 	all->o = 0;
 }
@@ -53,19 +53,14 @@ void	init_pylone(t_all *all)
 	all->c_i = 0.930150;
 }
 
-void	init_serpienski(t_all *all)
+void	init_celtic(t_all *all)
 {
-	all->ax = 10;
-	all->ay = H - 10;
-	all->bx = W - 10;
-	all->by = H - 10;
-	all->cx = W / 2;
-	all->cy = 10;
-	all->x = all->ax;
-	all->y = all->ay;
-	all->r2 = 255;
-	all->g2 = 255;
-	all->b2 = 255;
-	all->i = 0;
-	all->max = 100000;
+	all->x1 = -1.669874;
+	all->y1 = -1.290668;
+	all->zoom = 181.81818;
+	all->max = 90;
+	all->r2 = 11;
+	all->g2 = 2;
+	all->b2 = 0;
+	all->o = 0;
 }
