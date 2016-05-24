@@ -1,3 +1,5 @@
+![alt tag](http://puu.sh/p3pMM/5929886d6f.png)
+
 # Fract'ol
 
 Résumé: Ce projet consiste à créer graphiquement la représentation schématique d’un terrain en relief.
